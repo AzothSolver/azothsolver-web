@@ -3,11 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:title" content="AzothSolver">
+  <meta property="og:description" content="High-frequency trading solver for CoW Protocol.">
+  <meta property="og:image" content="/assets/images/logo.webp">
   <title>AzothSolver</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <!-- Preload all images -->
+  <link rel="preload" href="assets/images/logo.webp" as="image">
+  <link rel="preload" href="assets/images/cow-dao-logo.webp" as="image">
+  <link rel="preload" href="assets/images/rust-logo.webp" as="image">
+  <link rel="preload" href="assets/images/alchemy-logo.svg" as="image">
+  <link rel="preload" href="assets/images/base-logo.webp" as="image">
   <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/assets/fonts/inter-400.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/assets/fonts/inter-700.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/assets/fonts/space-grotesk-700.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
     :root {
       --background-dark: #0A0917;
       --background-light: #181628;
@@ -21,7 +48,6 @@
       margin: 0;
       font-family: 'Inter', sans-serif;
       background-color: var(--background-dark);
-      /* Adjusted gradient for slightly lighter top */
       background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
       background-repeat: no-repeat;
       color: var(--text-primary);
@@ -33,7 +59,6 @@
     header {
       padding: 60px 20px;
       text-align: center;
-      /* Add a subtle background to the header for contrast */
       background: linear-gradient(180deg, rgba(138, 66, 209, 0.1), transparent);
       position: relative;
     }
@@ -41,16 +66,15 @@
     .logo {
       max-width: 120px;
       margin-bottom: 25px;
-      /* Add shadow and background for visibility */
-      background-color: rgba(255, 255, 255, 0.1); /* Subtle white background */
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 30px;
-      padding: 10px; /* Padding to frame the logo */
-      box-shadow: 0 0 15px rgba(138, 66, 209, 0.3); /* Glow effect matching h1 */
+      padding: 10px;
+      box-shadow: 0 0 15px rgba(138, 66, 209, 0.3);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .logo:hover {
-      transform: scale(1.05); /* Subtle zoom on hover */
+      transform: scale(1.05);
       box-shadow: 0 0 20px rgba(138, 66, 209, 0.5);
     }
 
@@ -96,7 +120,6 @@
       margin-top: 80px;
       border-top: 1px solid rgba(140, 139, 158, 0.2);
       padding-top: 40px;
-      /* Remove inline background to keep it consistent */
       background: transparent;
     }
 
@@ -142,7 +165,7 @@
 </head>
 <body>
   <header>
-    <img src="assets/images/logo.png" alt="AzothSolver Logo" class="logo" />
+    <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" />
     <h1>AzothSolver</h1>
     <p class="tagline">The Alchemical Approach to High-Frequency Trading</p>
   </header>
@@ -158,16 +181,16 @@
       <h2>Backed by Tools & Infrastructure From</h2>
       <div class="partner-logos">
         <a href="https://cow.fi/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/images/cow-dao-logo.png" alt="CoW Protocol" width="150" height="50">
+          <img src="assets/images/cow-dao-logo.webp" alt="CoW Protocol" width="150" height="50" loading="lazy">
         </a>
         <a href="https://www.rust-lang.org/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/images/rust-logo.png" alt="Rust" width="150" height="50">
+          <img src="assets/images/rust-logo.webp" alt="Rust" width="150" height="50" loading="lazy">
         </a>
         <a href="https://www.alchemy.com/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/images/alchemy-logo.svg" alt="Alchemy" width="150" height="50">
+          <img src="assets/images/alchemy-logo.svg" alt="Alchemy" width="150" height="50" loading="lazy">
         </a>
         <a href="https://www.base.org/" target="_blank" rel="noopener noreferrer">
-          <img src="assets/images/base-logo.png" alt="Base" width="150" height="50">
+          <img src="assets/images/base-logo.webp" alt="Base" width="150" height="50" loading="lazy">
         </a>
       </div>
     </section>
