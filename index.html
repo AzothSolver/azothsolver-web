@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AzothSolver</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background-dark: #0A0917;
+      --background-light: #181628;
+      --accent-primary: #8A42D1;
+      --accent-secondary: #42C2D1;
+      --text-primary: #EAEAF2;
+      --text-secondary: #8C8B9E;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: var(--background-dark);
+      /* Adjusted gradient for slightly lighter top */
+      background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
+      background-repeat: no-repeat;
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      /* Add a subtle background to the header for contrast */
+      background: linear-gradient(180deg, rgba(138, 66, 209, 0.1), transparent);
+      position: relative;
+    }
+
+    .logo {
+      max-width: 120px;
+      margin-bottom: 25px;
+      /* Add shadow and background for visibility */
+      background-color: rgba(255, 255, 255, 0.1); /* Subtle white background */
+      border-radius: 30px;
+      padding: 10px; /* Padding to frame the logo */
+      box-shadow: 0 0 15px rgba(138, 66, 209, 0.3); /* Glow effect matching h1 */
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05); /* Subtle zoom on hover */
+      box-shadow: 0 0 20px rgba(138, 66, 209, 0.5);
+    }
+
+    h1 {
+      margin: 0;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 0 15px rgba(138, 66, 209, 0.4);
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      color: var(--accent-secondary);
+      margin-top: 10px;
+      font-weight: 400;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+      text-align: center;
+      flex-grow: 1;
+    }
+
+    .pitch {
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+
+    .pitch p {
+      margin-bottom: 2em;
+    }
+
+    .highlight {
+      color: var(--accent-primary);
+      font-weight: 700;
+    }
+
+    .partners {
+      margin-top: 80px;
+      border-top: 1px solid rgba(140, 139, 158, 0.2);
+      padding-top: 40px;
+      /* Remove inline background to keep it consistent */
+      background: transparent;
+    }
+
+    .partners h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 30px;
+      color: var(--text-secondary);
+    }
+
+    .partner-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 35px;
+      padding: 0 10px;
+    }
+
+    .partner-logos img {
+      height: 35px;
+      max-width: 120px;
+      object-fit: contain;
+      filter: grayscale(100%) opacity(60%);
+      transition: all 0.3s ease;
+    }
+
+    .partner-logos img:hover {
+      filter: none;
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="assets/images/logo.png" alt="AzothSolver Logo" class="logo" />
+    <h1>AzothSolver</h1>
+    <p class="tagline">The Alchemical Approach to High-Frequency Trading</p>
+  </header>
+
+  <main>
+    <section class="pitch">
+      <p><span class="highlight">AzothSolver</span> is a next-generation solver for the CoW Protocol, combining <span class="highlight">cutting-edge infrastructure</span> and <span class="highlight">proprietary algorithms</span> to capture opportunity in intent-based markets.</p>
+      <p>We’re focused on extreme low-latency performance, including optimized network topology, tuned Linux kernels, and high-performance routing strategies — all designed to unlock <span class="highlight">Infrastructure Alpha</span> and <span class="highlight">Algorithmic Alpha</span>.</p>
+      <p><em>Phase 1 begins soon — shadow competition entry is scheduled for Q3 2025.</em></p>
+    </section>
+
+    <section class="partners">
+      <h2>Backed by Tools & Infrastructure From</h2>
+      <div class="partner-logos">
+        <a href="https://cow.fi/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/cow-dao-logo.png" alt="CoW Protocol" width="150" height="50">
+        </a>
+        <a href="https://www.rust-lang.org/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/rust-logo.png" alt="Rust" width="150" height="50">
+        </a>
+        <a href="https://www.alchemy.com/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/alchemy-logo.svg" alt="Alchemy" width="150" height="50">
+        </a>
+        <a href="https://www.base.org/" target="_blank" rel="noopener noreferrer">
+          <img src="assets/images/base-logo.png" alt="Base" width="150" height="50">
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 AzothSolver. All rights reserved.
+  </footer>
+</body>
+</html>
