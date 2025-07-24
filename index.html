@@ -206,6 +206,52 @@
       50% { background-color: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary); }
       100% { background-color: var(--accent-secondary); box-shadow: 0 0 5px var(--accent-secondary); }
     }
+
+    .cta-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: white;
+      background-color: var(--accent-primary);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
+      background-color: var(--accent-secondary);
+    }
+    
+    .whitepaper-cta {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* This creates space between the buttons */
+    flex-wrap: wrap; /* Allows buttons to stack on small screens */
+}
+
+/* === ADD THESE NEW RULES AT THE END OF THE STYLE BLOCK === */
+.cta-button.secondary {
+    background-color: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+    box-shadow: none;
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--accent-primary);
+    color: white;
+    box-shadow: 0 6px 20px rgba(138, 66, 209, 0.4);
+}
   </style>
 </head>
 <body>
@@ -234,6 +280,15 @@
       <p><em>Phase 1 begins soon — shadow competition entry is scheduled for Q3 2025.</em></p>
     </section>
 
+    <section class="whitepaper-cta">
+      <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">
+        Download PDF
+      </a>
+      <a href="/whitepaper.html" class="cta-button secondary">
+        View Online
+      </a>
+    </section>
+
     <section class="partners">
       <h2>Backed by Tools & Infrastructure From</h2>
       <div class="partner-logos">
@@ -251,6 +306,7 @@
         </a>
       </div>
     </section>
+
     <section class="contact">
       <h2>Contact Us</h2>
       <p>Reach out at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
