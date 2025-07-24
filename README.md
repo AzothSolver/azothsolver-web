@@ -58,7 +58,7 @@ You can deploy this landing page using:
 
 ## 📅 Phase 1 Launch
 
-> AzothSolver will enter the **CoW Protocol shadow competition** in **Q3 2025**.  
+> AzothSolver will enter the **CoW Protocol shadow competition** in **Q4 2025**.  
 > Follow this repo to stay informed on launch updates and solver performance milestones.
 
 ---
