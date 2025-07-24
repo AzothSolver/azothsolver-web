@@ -161,6 +161,30 @@
       font-size: 0.9rem;
       color: var(--text-secondary);
     }
+
+    .contact-link {
+      color: var(--accent-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--accent-secondary);
+    }
+
+    .contact {
+  margin-top: 80px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(140, 139, 158, 0.2);
+}
+.contact h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: var(--text-secondary);
+}
   </style>
 </head>
 <body>
@@ -194,10 +218,14 @@
         </a>
       </div>
     </section>
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out at <a href="mailto:azothsolver&#64;gmail.com" class="contact-link">azothsolver&#64;gmail.com</a></p>
+    </section>
   </main>
 
   <footer>
-    © 2025 AzothSolver. All rights reserved.
+    <p>© 2025 AzothSolver. All rights reserved.</p>
   </footer>
 </body>
 </html>
