@@ -9,7 +9,7 @@
   <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
   <style>
-    /* === START: CORE STYLES (Copied from index.html) === */
+    /* === START: CORE STYLES === */
     @font-face {
       font-family: 'Inter';
       font-style: normal;
@@ -81,12 +81,58 @@
     .whitepaper-container {
       max-width: 800px;
       margin: 20px auto;
-      padding: 20px;
-      background-color: rgba(24, 22, 40, 0.5); /* Semi-transparent bg */
+      padding: 20px 30px; /* More horizontal padding */
+      background-color: rgba(24, 22, 40, 0.5);
       border: 1px solid var(--background-light);
       border-radius: 12px;
       flex-grow: 1;
     }
+    
+    /* Navigation Bar at top of page */
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 10px 25px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      background-color: var(--accent-primary);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
+      background-color: var(--accent-secondary);
+    }
+    .cta-button.secondary {
+        background-color: transparent;
+        border: 2px solid var(--accent-primary);
+        color: var(--accent-primary);
+        padding: 8px 25px;
+        box-shadow: none;
+    }
+    .cta-button.secondary:hover {
+        background-color: var(--accent-primary);
+        color: white;
+        box-shadow: 0 6px 20px rgba(138, 66, 209, 0.4);
+    }
+    
+    /* Content Styles */
     .whitepaper-container h1 {
       font-family: 'Space Grotesk', sans-serif;
       font-size: 2.5rem;
@@ -162,17 +208,6 @@
         font-style: italic;
         margin-top: 15px;
     }
-    .back-link {
-        display: inline-block;
-        margin-bottom: 30px;
-        color: var(--accent-secondary);
-        font-weight: bold;
-        text-decoration: none;
-    }
-    .back-link:hover {
-        color: var(--accent-primary);
-        text-decoration: underline;
-    }
     /* === END: NEW STYLES === */
   </style>
 </head>
@@ -184,7 +219,10 @@
   </header>
 
   <main class="whitepaper-container">
-    <a href="/index.html" class="back-link">← Back to Home</a>
+    <div class="page-nav">
+      <a href="/index.html" class="cta-button secondary">← Back to Home</a>
+      <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Download as PDF</a>
+    </div>
     
     <h1>📄 AzothSolver Whitepaper</h1>
     <p class="subtitle"><strong>Version 2.4</strong> — <strong>Date:</strong> July 24, 2025</p>
@@ -319,6 +357,7 @@
         <li><strong>Solver Rewards:</strong> Direct earnings from the CoW Protocol.</li>
         <li><strong>Slippage Alpha:</strong> Value captured from optimized trade execution.</li>
         <li><strong>Azoth Terminal (Dashboard & Analytics):</strong> Revenue from swap fees and premium subscriptions for pro-level features, including advanced on-chain analytics and real-time data feeds.</li>
+        <li><strong>Future Licensing:</strong> White-labeling our core solver technology for institutional partners.</li>
     </ol>
     <hr>
 
