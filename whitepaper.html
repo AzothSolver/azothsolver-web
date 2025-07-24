@@ -137,6 +137,34 @@
         color: white;
         box-shadow: 0 6px 20px rgba(138, 66, 209, 0.4);
     }
+       /* Pixel Bar Animation */
+       .pixel-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .pixel {
+      width: 12px;
+      height: 12px;
+      background-color: var(--text-primary);
+      animation: pixelBlink 2s infinite;
+      border-radius: 2px;
+    }
+    .pixel:nth-child(2) { animation-delay: 0.2s; }
+    .pixel:nth-child(3) { animation-delay: 0.4s; }
+    .pixel:nth-child(4) { animation-delay: 0.6s; }
+    .pixel:nth-child(5) { animation-delay: 0.8s; }
+    .pixel:nth-child(6) { animation-delay: 1s; }
+    .pixel:nth-child(7) { animation-delay: 1.2s; }
+    .pixel:nth-child(8) { animation-delay: 1.4s; }
+    .pixel:nth-child(9) { animation-delay: 1.6s; }
+    .pixel:nth-child(10) { animation-delay: 1.8s; }
+    @keyframes pixelBlink {
+      0% { background-color: var(--text-primary); box-shadow: 0 0 5px var(--text-primary); }
+      50% { background-color: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary); }
+      100% { background-color: var(--accent-secondary); box-shadow: 0 0 5px var(--accent-secondary); }
+    }
     
     /* Content Styles */
     .whitepaper-container h1 {
@@ -222,6 +250,18 @@
     <a href="/index.html">
     <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="120" height="120" />
     </a>
+    <div class="pixel-bar">
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+        <div class="pixel"></div>
+      </div>
   </header>
 
   <main class="whitepaper-container">
@@ -230,7 +270,8 @@
       <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Download as PDF</a>
     </div>
     
-    <h1>📄 AzothSolver Whitepaper</h1>
+    
+    <h1>AzothSolver Whitepaper 📄</h1>
     <p class="subtitle"><strong>Version 2.4</strong> — <strong>Date:</strong> July 24, 2025</p>
 
     <h2>Abstract</h2>
@@ -342,8 +383,7 @@
     </ul>
     <hr>
     
-
-
+    
     <h2>Contact</h2>
     <p>
         📩 <a href="mailto:azothsolver@gmail.com">azothsolver@gmail.com</a><br>
