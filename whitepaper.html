@@ -56,8 +56,17 @@
       background: linear-gradient(180deg, rgba(138, 66, 209, 0.1), transparent);
     }
     .logo {
-      max-width: 80px;
-      border-radius: 20px;
+      max-width: 120px;
+      margin-bottom: 25px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 30px;
+      padding: 10px;
+      box-shadow: 0 0 15px rgba(138, 66, 209, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(138, 66, 209, 0.5);
     }
     footer {
       text-align: center;
@@ -214,7 +223,7 @@
 <body>
   <header>
     <a href="/index.html">
-        <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="80" height="80" />
+        <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="120" height="120" />
     </a>
   </header>
 
