@@ -13,6 +13,10 @@
   <link rel="preload" href="assets/images/rust-logo.webp" as="image">
   <link rel="preload" href="assets/images/alchemy-logo.svg" as="image">
   <link rel="preload" href="assets/images/base-logo.webp" as="image">
+  <!-- Preload fonts for faster text rendering -->
+  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     @font-face {
       font-family: 'Inter';
@@ -173,18 +177,47 @@
     }
 
     .contact {
-  margin-top: 80px;
-  padding-top: 40px;
-  border-top: 1px solid rgba(140, 139, 158, 0.2);
-}
-.contact h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  color: var(--text-secondary);
-}
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(140, 139, 158, 0.2);
+    }
+    .contact h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      color: var(--text-secondary);
+    }
+
+    /* Pixel Bar Animation */
+    .pixel-bar {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+    }
+    .pixel {
+      width: 12px;
+      height: 12px;
+      background-color: var(--text-primary);
+      animation: pixelBlink 2s infinite;
+      border-radius: 2px;
+    }
+    .pixel:nth-child(2) { animation-delay: 0.2s; }
+    .pixel:nth-child(3) { animation-delay: 0.4s; }
+    .pixel:nth-child(4) { animation-delay: 0.6s; }
+    .pixel:nth-child(5) { animation-delay: 0.8s; }
+    .pixel:nth-child(6) { animation-delay: 1s; }
+    .pixel:nth-child(7) { animation-delay: 1.2s; }
+    .pixel:nth-child(8) { animation-delay: 1.4s; }
+    .pixel:nth-child(9) { animation-delay: 1.6s; }
+    .pixel:nth-child(10) { animation-delay: 1.8s; }
+    @keyframes pixelBlink {
+      0% { background-color: var(--text-primary); box-shadow: 0 0 5px var(--text-primary); }
+      50% { background-color: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary); }
+      100% { background-color: var(--accent-secondary); box-shadow: 0 0 5px var(--accent-secondary); }
+    }
   </style>
 </head>
 <body>
@@ -192,6 +225,18 @@
     <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" />
     <h1>AzothSolver</h1>
     <p class="tagline">The Alchemical Approach to High-Frequency Trading</p>
+    <div class="pixel-bar">
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+    </div>
   </header>
 
   <main>
@@ -220,7 +265,7 @@
     </section>
     <section class="contact">
       <h2>Contact Us</h2>
-      <p>Reach out at <a href="mailto:azothsolver&#64;gmail.com" class="contact-link">azothsolver&#64;gmail.com</a></p>
+      <p>Reach out at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
     </section>
   </main>
 
