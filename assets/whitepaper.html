@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AzothSolver Whitepaper: A deep dive into the infrastructure and algorithms for our CoW Protocol solver." />
+  <title>AzothSolver Whitepaper</title>
+  <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    /* === START: CORE STYLES (Copied from index.html) === */
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      src: url('/assets/fonts/inter-400.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/assets/fonts/inter-700.woff2') format('woff2');
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Space Grotesk';
+      font-style: normal;
+      font-weight: 700;
+      src: url('/assets/fonts/space-grotesk-700.woff2') format('woff2');
+      font-display: swap;
+    }
+    :root {
+      --background-dark: #0A0917;
+      --background-light: #181628;
+      --accent-primary: #8A42D1;
+      --accent-secondary: #42C2D1;
+      --text-primary: #EAEAF2;
+      --text-secondary: #8C8B9E;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: var(--background-dark);
+      background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
+      background-repeat: no-repeat;
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 30px 20px;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(138, 66, 209, 0.1), transparent);
+    }
+    .logo {
+      max-width: 80px;
+      border-radius: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      border-top: 1px solid rgba(140, 139, 158, 0.1);
+      margin-top: 60px;
+    }
+    a {
+      color: var(--accent-secondary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* === END: CORE STYLES === */
+
+
+    /* === START: NEW STYLES FOR WHITEPAPER PAGE === */
+    .whitepaper-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: rgba(24, 22, 40, 0.5); /* Semi-transparent bg */
+      border: 1px solid var(--background-light);
+      border-radius: 12px;
+      flex-grow: 1;
+    }
+    .whitepaper-container h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      color: white;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .whitepaper-container .subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      margin-top: 0;
+      margin-bottom: 40px;
+    }
+    .whitepaper-container h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      color: var(--accent-primary);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--background-light);
+    }
+    .whitepaper-container h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      color: var(--accent-secondary);
+      margin-top: 30px;
+      margin-bottom: 15px;
+    }
+    .whitepaper-container p, .whitepaper-container li {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-primary);
+    }
+    .whitepaper-container ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .whitepaper-container li {
+      padding-left: 25px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+    .whitepaper-container li::before {
+      content: '»';
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+    }
+    .whitepaper-container hr {
+      border: 0;
+      height: 1px;
+      background-color: var(--background-light);
+      margin: 50px 0;
+    }
+    .whitepaper-container table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .whitepaper-container th, .whitepaper-container td {
+      border: 1px solid var(--background-light);
+      padding: 12px;
+      text-align: left;
+    }
+    .whitepaper-container th {
+      background-color: var(--background-light);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .whitepaper-container .footnote {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-style: italic;
+        margin-top: 15px;
+    }
+    .back-link {
+        display: inline-block;
+        margin-bottom: 30px;
+        color: var(--accent-secondary);
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .back-link:hover {
+        color: var(--accent-primary);
+        text-decoration: underline;
+    }
+    /* === END: NEW STYLES === */
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/index.html">
+        <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="80" height="80" />
+    </a>
+  </header>
+
+  <main class="whitepaper-container">
+    <a href="/index.html" class="back-link">← Back to Home</a>
+    
+    <h1>📄 AzothSolver Whitepaper</h1>
+    <p class="subtitle"><strong>Version 2.4</strong> — <strong>Date:</strong> July 24, 2025</p>
+
+    <h2>Abstract</h2>
+    <p>AzothSolver is a performance-driven, infrastructure-optimized solver designed to extract protocol rewards and slippage alpha within the CoW Protocol. Our approach combines bare-metal compute, proprietary routing algorithms, and deep market insights to achieve consistent profitability, protect user execution, and ultimately power a suite of advanced trading tools and market analytics products.</p>
+    <hr>
+
+    <h2>1. The Problem & The Opportunity</h2>
+    <p>Decentralized trading protocols like CoW Protocol offer MEV-protected trading via solver auctions. However, success in this arena is a function of speed and intelligence. In the last year alone, an estimated <strong>$15-20 million</strong> in potential value was left on the table due to suboptimal routing and settlement latency.</p>
+    <p><strong>AzothSolver</strong> is built to capture this value by addressing the core bottlenecks:</p>
+    <ul>
+      <li><strong>Low-Latency Infrastructure:</strong> We deploy bare-metal hardware and a finely-tuned network stack to gain a critical millisecond edge.</li>
+      <li><strong>Advanced Algorithmic Alpha:</strong> Our custom routing strategies go beyond standard pathfinding to identify and execute on uniquely profitable opportunities.</li>
+      <li><strong>Scalable Architecture:</strong> Designed from day one for multi-network operation, ensuring we can expand as the market evolves and use our intelligence to power user-facing products.</li>
+    </ul>
+    <hr>
+    
+    <h2>2. Technical Strategy</h2>
+    <h3>Infrastructure Alpha (The Edge)</h3>
+    <ul>
+      <li><strong>Hardware:</strong> Bare-metal server collocated for minimal latency to key network peers.</li>
+      <li><strong>OS & Network:</strong> Ubuntu 24.04 with a real-time (RT) kernel, custom TCP stack, and isolated CPU cores to ensure our solver processes run without interruption.</li>
+      <li><strong>Execution:</strong> Local `op-geth` node for the Base network, with a direct path to our custom-built, high-performance transaction scheduler.</li>
+    </ul>
+
+    <h3>Algorithmic Alpha (The Secret Sauce)</h3>
+    <ul>
+        <li><strong>Proprietary Pathfinding:</strong> Our graph-based algorithm doesn't just find the shortest path; it models gas volatility and uncovers asymmetric <strong>CoW ring trades</strong> often missed by competitors.</li>
+        <li><strong>Intent-Based Analysis:</strong> We analyze order flow patterns to predict likely settlement paths, allowing us to pre-compute optimal routes before the auction begins.</li>
+        <li><strong>Intelligence Gathering:</strong> Our infrastructure is built not just for execution but for intelligence, capturing a wide spectrum of cross-chain data to provide deep market visibility through our future analytics products.</li>
+    </ul>
+    <hr>
+
+    <h2>3. The Team</h2>
+    <p>AzothSolver is led by a team of deeply experienced builders with a proven track record in crypto infrastructure and decentralized technology.</p>
+    <ul>
+        <li><strong>Lead Founder & Engineer:</strong> A full-stack architect with deep infrastructure expertise. Previously built and launched a novel <strong>cross-chain messaging protocol</strong> from the ground up. Has extensive experience running large-scale, multi-network crypto mining operations, where they designed and implemented custom monitoring solutions to maximize efficiency and profitability. Also developed and taught Web3 curricula for <strong>European universities and consulting firms</strong>.</li>
+        <li><strong>Core Contributors:</strong> A collective of low-latency engineers, smart contract auditors, and quantitative analysts passionate about optimization.</li>
+    </ul>
+    <hr>
+
+    <h2>4. Architecture</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Layer</th>
+                <th>Tech Stack</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Hardware</td>
+                <td>Ryzen 9 7950X, 128GB DDR5 RAM, NVMe SSDs</td>
+            </tr>
+            <tr>
+                <td>OS</td>
+                <td>Ubuntu 24.04 + Real-Time Kernel</td>
+            </tr>
+            <tr>
+                <td>Blockchain</td>
+                <td>`op-geth` node (Base), future: Arbitrum, Solana, L2s</td>
+            </tr>
+            <tr>
+                <td>Monitoring</td>
+                <td>Prometheus + Grafana + PostgreSQL</td>
+            </tr>
+            <tr>
+                <td>Execution</td>
+                <td>Docker-based job manager, custom Rust-based scheduler</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    
+    <h2>5. Roadmap & KPIs</h2>
+    <h3>Phase 1: Setup (Month 1–2)</h3>
+    <ul>
+        <li>Launch bare-metal server, secure HSM, pass KYC.</li>
+        <li>Deploy node infrastructure and benchmark tooling.</li>
+        <li><strong>KPI:</strong> System ready for development and entry into shadow mode.</li>
+    </ul>
+
+    <h3>Phase 2: Development (Month 3–4)</h3>
+    <ul>
+        <li>Build Tier 1 solver (partial fill + AMM routing).</li>
+        <li>Connect to CoW Protocol shadow pool for live testing.</li>
+        <li><strong>KPI:</strong> Achieve a baseline <strong>0.5%</strong> win rate in a competitive environment.</li>
+    </ul>
+    
+    <h3>Phase 3: Optimization & Profitability (Month 5–7)</h3>
+    <ul>
+        <li>Deploy Tier 2 (multi-hop) & Tier 3 (proprietary CoW rings) algorithms.</li>
+        <li>Secure bonding and enter the official DAO auction.</li>
+        <li><strong>KPI:</strong> Reach <strong>2.5%</strong> shadow win rate; generate <strong>$500–$2.5k/mo</strong> in net profit.</li>
+    </ul>
+
+    <h3>Phase 4: Scale & Expand (Month 8–18)</h3>
+    <ul>
+        <li>Scale infrastructure via AWS for multi-network redundancy.</li>
+        <li>Deploy solver across <strong>3+ new networks</strong> (Arbitrum, Solana, etc.).</li>
+        <li>Develop data backend and API for our public-facing analytics dashboard.</li>
+        <li><strong>KPI:</strong> Target <strong>$15k–$35k/month</strong> in net PnL; Complete v1 of the public data API.</li>
+    </ul>
+
+    <h3>Phase 5: Product Ecosystem (Month 19+)</h3>
+    <ul>
+        <li>Develop and launch <strong>Azoth Terminal</strong>, a public-facing trading dashboard.</li>
+        <li>This terminal will expose our solver's routing power to users, offering best swap routes, advanced market analytics, real-time network info, and a predictive gas fee oracle.</li>
+        <li><strong>KPI:</strong> Achieve <strong>$5M</strong> in monthly trade volume through the dashboard and 1,000 monthly active users.</li>
+    </ul>
+    <hr>
+    
+    <h2>6. Financials & Investment</h2>
+    <p>We are seeking <strong>$100k–$200k in seed funding</strong> to accelerate development, scale infrastructure, and establish a formal corporate entity.</p>
+    <ul>
+        <li><strong>$100k (Core Funding):</strong> Fully funds our roadmap through Phase 3, achieving sustained profitability on the Base network and preparing our expansion playbook.</li>
+        <li><strong>$200k (Accelerated Growth):</strong> Allows for immediate parallel development for multi-network deployment, aggressive R&D, and covers all legal costs for establishing a corporate entity in a strategic, crypto-friendly jurisdiction such as <strong>Thailand or Singapore</strong>.</li>
+    </ul>
+
+    <h3>Fund Allocation:</h3>
+    <ul>
+        <li><strong>55%</strong> Engineering & R&D</li>
+        <li><strong>25%</strong> Infrastructure & Scaling</li>
+        <li><strong>10%</strong> Legal, DAO Bonding & Operations</li>
+        <li><strong>10%</strong> Liquidity & Settlement Reserve</li>
+    </ul>
+    <p class="footnote">*A small reserve (~5–10%) may be allocated to internal liquidity provisioning for solver-enhanced settlement. This helps us maximize trade execution efficiency without relying on third-party liquidity routes, particularly for CoW ring settlement or flash-match scenarios.</p>
+
+    <h3>Revenue Model:</h3>
+    <ol>
+        <li><strong>Solver Rewards:</strong> Direct earnings from the CoW Protocol.</li>
+        <li><strong>Slippage Alpha:</strong> Value captured from optimized trade execution.</li>
+        <li><strong>Azoth Terminal (Dashboard & Analytics):</strong> Revenue from swap fees and premium subscriptions for pro-level features, including advanced on-chain analytics and real-time data feeds.</li>
+    </ol>
+    <hr>
+
+    <h2>Contact</h2>
+    <p>
+        📩 <a href="mailto:azothsolver@gmail.com">azothsolver@gmail.com</a><br>
+        🌐 <a href="https://azothsolver-web.vercel.app" target="_blank" rel="noopener noreferrer">https://azothsolver-web.vercel.app</a>
+    </p>
+
+  </main>
+
+  <footer>
+    <p>© 2025 AzothSolver. All rights reserved.</p>
+  </footer>
+</body>
+</html>
