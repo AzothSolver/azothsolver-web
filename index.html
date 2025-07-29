@@ -127,5 +127,22 @@
   <footer>
     <p>© 2025 AzothSolver. All rights reserved.</p>
   </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">↑</button>
+  <script>
+    // Show/hide back-to-top button based on scroll position
+    window.addEventListener('scroll', () => {
+      const button = document.getElementById('back-to-top');
+      if (window.scrollY > 300) { // Show button after scrolling 300px
+        button.classList.add('visible');
+      } else {
+        button.classList.remove('visible');
+      }
+    });
+  
+    // Smooth scroll to top when button is clicked
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
