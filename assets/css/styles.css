@@ -666,7 +666,7 @@ footer {
   display: flex;
   justify-content: right;
   gap: 6px;
-  padding: 9px 15px;
+  padding: 9px 3px;
   background-color: rgba(10, 9, 23, 0.9);
   /* Matches --background-dark with opacity */
   backdrop-filter: blur(10px);
