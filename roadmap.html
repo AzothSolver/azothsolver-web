@@ -3,28 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="A visual roadmap to building a competitive CoW Protocol solver, covering auction anatomy, pathfinding, CoWs, and advanced techniques.">
+    <meta name="description" content="A visual roadmap to building a competitive CoW Protocol solver, covering auction anatomy, pathfinding, CoWs, and advanced techniques.">
     <meta property="og:title" content="CoW Protocol Solver: A Developer's Roadmap">
     <meta property="og:description" content="A visual guide to building a competitive solver for CoW Protocol.">
-    <meta property="og:image" content="/assets/images/logo.webp">
+    <meta property="og:image" content="assets/images/logo.webp">
     <title>CoW Protocol Solver: A Developer's Roadmap</title>
-
-    <!-- Preload fonts -->
-    <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
-
-    <!-- Preload images -->
-    <link rel="preload" href="/assets/images/logo.webp" as="image">
-    <link rel="preload" href="/assets/images/cow-dao-logo.webp" as="image">
-
-    <!-- Link to external CSS file -->
+    <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/images/logo.webp" as="image">
+    <link rel="preload" href="assets/images/cow-dao-logo.webp" as="image">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body id="top">
     <header>
-        <img src="/assets/images/logo.webp" alt="AzothSolver logo for CoW Protocol solver roadmap" class="logo" width="120" height="120" />
+        <img src="assets/images/logo.webp" alt="AzothSolver logo for CoW Protocol solver roadmap" class="logo" width="120" height="120" />
         <h1>From <span class="accent-text">Shadow</span> to <span class="highlight">Settlement</span></h1>
         <p class="tagline">A Visual Roadmap to Building a Competitive CoW Protocol Solver</p>
         <div class="pixel-bar">
@@ -40,31 +33,21 @@
             <div class="pixel" style="--n:10"></div>
         </div>
     </header>
-
     <main>
         <div class="page-nav">
             <a href="/index.html" class="cta-button secondary">← Back to Home</a>
-            <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Whitepaper</a>
+            <a href="assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Whitepaper</a>
         </div>
-
         <section class="content-section">
-            <p>Becoming a CoW Protocol solver is more than running infrastructure. It's an algorithmic arms race where
-                the prize is user surplus. The core of this challenge is the <span class="highlight">solver
-                    engine</span>, an intelligent system that must navigate the complexities of DeFi to find the most
-                optimal settlement for a batch of user trades.</p>
+            <p>Becoming a CoW Protocol solver is more than running infrastructure. It's an algorithmic arms race where the prize is user surplus. The core of this challenge is the <span class="highlight">solver engine</span>, an intelligent system that must navigate the complexities of DeFi to find the most optimal settlement for a batch of user trades.</p>
         </section>
-
         <section class="content-section">
             <h2>AzothSolver’s Approach</h2>
             <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub-0.5ms latency</span> using Frankfurt-based bare metal servers and <span class="highlight">Rust-based algorithms</span>. Our goal is to compete in the CoW Protocol shadow competition in Q4 2025. See the <a href="/whitepaper.html">whitepaper</a> for details.</p>
         </section>
-
         <section class="content-section">
             <h2>Anatomy of an Auction</h2>
-            <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span
-                    class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its
-                structure is the first critical step.</p>
-
+            <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its structure is the first critical step.</p>
             <div class="flow-diagram">
                 <div class="flow-item">
                     <div class="flow-icon" aria-label="CoW Protocol Driver icon">📦</div>
@@ -89,69 +72,59 @@
                     <p>Finds optimal solution</p>
                 </div>
             </div>
-
-            <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than
-                data validation. The most critical data points are the user <span class="highlight">orders</span> and
-                the available on-chain <span class="highlight">AMMs</span>.</p>
+            <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than data validation. The most critical data points are the user <span class="highlight">orders</span> and the available on-chain <span class="highlight">AMMs</span>.</p>
         </section>
-
         <section class="content-section">
             <h2>Foundational Strategy: Optimal Pathfinding</h2>
-            <p>Before finding CoWs, a solver must master routing trades across on-chain liquidity. This is modeled as a
-                dynamic graph problem where the "best" path depends on trade size.</p>
-
-                <div class="algorithm-table">
-                    <h3>Choosing the Right Algorithm</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Algorithm</th>
-                                <th>Use Case in Solver</th>
-                                <th>Splits Orders?</th>
-                                <th>Finds Arbitrage?</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Dijkstra</td>
-                                <td>Too simple; fails with dynamic trade costs.</td>
-                                <td>✗</td>
-                                <td>✗</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Bellman-Ford</strong></td>
-                                <td>Excellent for detecting arbitrage (negative cycles) to capture as user surplus.</td>
-                                <td>✗</td>
-                                <td>✓</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Max-Flow Min-Cost</strong></td>
-                                <td>The canonical approach for splitting large orders across multiple pools to minimize slippage.</td>
-                                <td>✓</td>
-                                <td>✗</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Numerical Optimization</strong></td>
-                                <td>A practical way to solve the complex, non-linear problem of maximizing output across multiple AMM curves.</td>
-                                <td>✓</td>
-                                <td>✗</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <p class="table-caption">A competitive solver combines multiple algorithms: one for arbitrage detection and another for optimal order splitting.</p>
-                </div>
+            <p>Before finding CoWs, a solver must master routing trades across on-chain liquidity. This is modeled as a dynamic graph problem where the "best" path depends on trade size.</p>
+            <div class="specs-table">
+                <h3>Choosing the Right Algorithm</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Use Case in Solver</th>
+                            <th>Splits Orders?</th>
+                            <th>Finds Arbitrage?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dijkstra</td>
+                            <td>Too simple; fails with dynamic trade costs.</td>
+                            <td>✗</td>
+                            <td>✗</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bellman-Ford</strong></td>
+                            <td>Excellent for detecting arbitrage (negative cycles) to capture as user surplus.</td>
+                            <td>✗</td>
+                            <td>✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max-Flow Min-Cost</strong></td>
+                            <td>The canonical approach for splitting large orders across multiple pools to minimize slippage.</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Numerical Optimization</strong></td>
+                            <td>A practical way to solve the complex, non-linear problem of maximizing output across multiple AMM curves.</td>
+                            <td>✓</td>
+                            <td>✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="footnote">A competitive solver combines multiple algorithms: one for arbitrage detection and another for optimal order splitting.</p>
+            </div>
         </section>
-
         <section class="content-section">
             <h2>The Core Edge: Mastering Coincidence of Wants (CoWs)</h2>
-            <p>The true power of CoW Protocol is settling trades peer-to-peer, avoiding AMM fees and slippage. A
-                solver's ability to find these "CoWs" is its primary source of alpha.</p>
-
-            <div class="cow-examples">
-                <div class="cow-card">
+            <p>The true power of CoW Protocol is settling trades peer-to-peer, avoiding AMM fees and slippage. A solver's ability to find these "CoWs" is its primary source of alpha.</p>
+            <div class="content-list card-grid">
+                <div class="card-item">
                     <h3>Simple CoW</h3>
-                    <p>A direct peer-to-peer trade. Alice wants to sell ETH for USDC, Bob wants to sell USDC for ETH.
-                        The solver matches them directly.</p>
+                    <p>A direct peer-to-peer trade. Alice wants to sell ETH for USDC, Bob wants to sell USDC for ETH. The solver matches them directly.</p>
                     <div class="cow-participants">
                         <div class="participant">
                             <div class="participant-icon" aria-label="Alice participant icon">👩‍🦱</div>
@@ -166,11 +139,9 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="cow-card">
+                <div class="card-item">
                     <h3>Ring CoW</h3>
-                    <p>A multi-party trade forming a closed loop of liquidity. This is the most valuable and complex CoW
-                        to find.</p>
+                    <p>A multi-party trade forming a closed loop of liquidity. This is the most valuable and complex CoW to find.</p>
                     <div class="cow-participants">
                         <div class="participant">
                             <div class="participant-icon" aria-label="Alice participant icon">👩‍🦱</div>
@@ -193,46 +164,37 @@
                 </div>
             </div>
         </section>
-
         <section class="content-section">
             <h2>The Elite Solver's Toolkit</h2>
-            <p>Top solvers gain their edge by optimizing at the margins. These advanced techniques separate the winners
-                from the rest of the pack.</p>
-
-            <div class="techniques-grid">
-                <div class="technique-card">
+            <p>Top solvers gain their edge by optimizing at the margins. These advanced techniques separate the winners from the rest of the pack.</p>
+            <div class="content-list card-grid">
+                <div class="card-item">
                     <div class="technique-icon" aria-label="Precision Gas Estimation icon">⛽️</div>
-                    <h4>Precision Gas Estimation</h4>
+                    <h3>Precision Gas Estimation</h3>
                     <p>Internal gas models and simulation beat standard estimates, leading to more competitive bids.</p>
                 </div>
-                <div class="technique-card">
+                <div class="card-item">
                     <div class="technique-icon" aria-label="Superior Liquidity icon">🌊</div>
-                    <h4>Superior Liquidity</h4>
-                    <p>Integrating DEX aggregators and private market makers provides better pricing than baseline AMMs.
-                    </p>
+                    <h3>Superior Liquidity</h3>
+                    <p>Integrating DEX aggregators and private market makers provides better pricing than baseline AMMs.</p>
                 </div>
-                <div class="technique-card">
+                <div class="card-item">
                     <div class="technique-icon" aria-label="Benign MEV Capture icon">🤖</div>
-                    <h4>Benign MEV Capture</h4>
-                    <p>Using arbitrage profits to improve user prices, not for personal gain, increases the solution
-                        score.</p>
+                    <h3>Benign MEV Capture</h3>
+                    <p>Using arbitrage profits to improve user prices, not for personal gain, increases the solution score.</p>
                 </div>
-                <div class="technique-card">
+                <div class="card-item">
                     <div class="technique-icon" aria-label="Flash Loans icon">⚡️</div>
-                    <h4>Flash Loans</h4>
-                    <p>Unlocking complex settlements and arbitrage with virtual capital, increasing capital efficiency.
-                    </p>
+                    <h3>Flash Loans</h3>
+                    <p>Unlocking complex settlements and arbitrage with virtual capital, increasing capital efficiency.</p>
                 </div>
             </div>
         </section>
-
         <section class="content-section">
             <h2>Benchmarking for Victory</h2>
-            <p>A solver is a dynamic trading agent. Success requires constant monitoring, analysis, and iteration based
-                on key performance indicators (KPIs) from the risk-free Shadow Competition. <em>Note: KPI values below are illustrative for demonstration.</em></p>
-
-            <div class="kpi-section">
-                <div class="kpi-card">
+            <p>A solver is a dynamic trading agent. Success requires constant monitoring, analysis, and iteration based on key performance indicators (KPIs) from the risk-free Shadow Competition. <em>Note: KPI values below are illustrative for demonstration.</em></p>
+            <div class="content-list card-grid">
+                <div class="card-item">
                     <h3>Key Performance Indicators</h3>
                     <div class="kpi-item">
                         <div class="kpi-label">
@@ -271,66 +233,59 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="kpi-card">
+                <div class="card-item">
                     <h3>The Iterative Development Cycle</h3>
                     <div class="development-cycle">
                         <div class="cycle-step">
-                            <h5>1. Hypothesize</h5>
+                            <h4>1. Hypothesize</h4>
                             <p>"Integrating a new PMM will improve my win rate."</p>
                         </div>
                         <div class="flow-arrow">↓</div>
                         <div class="cycle-step">
-                            <h5>2. Implement</h5>
+                            <h4>2. Implement</h4>
                             <p>Code the new liquidity source adapter.</p>
                         </div>
                         <div class="flow-arrow">↓</div>
                         <div class="cycle-step">
-                            <h5>3. Test (Shadow Competition)</h5>
+                            <h4>3. Test (Shadow Competition)</h4>
                             <p>Deploy and collect data risk-free.</p>
                         </div>
                         <div class="flow-arrow">↓</div>
                         <div class="cycle-step">
-                            <h5>4. Analyze & Iterate</h5>
+                            <h4>4. Analyze & Iterate</h4>
                             <p>Compare KPIs, reverse-engineer losses, and repeat.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="content-section">
             <h2>AzothSolver Development Timeline</h2>
             <p>AzothSolver’s implementation of this roadmap is structured in phases to achieve competitive performance in the CoW Protocol ecosystem.</p>
-            <div class="development-cycle">
-                <div class="cycle-step">
-                    <h5>Q3 2025: Infrastructure Setup</h5>
+            <div class="content-list card-grid">
+                <div class="card-item">
+                    <h4>Q3 2025: Infrastructure Setup</h4>
                     <p>Deploy Frankfurt bare metal servers and telemetry systems.</p>
                 </div>
-                <div class="flow-arrow">↓</div>
-                <div class="cycle-step">
-                    <h5>Q4 2025: Shadow Competition</h5>
+                <div class="card-item">
+                    <h4>Q4 2025: Shadow Competition</h4>
                     <p>Launch core solver and participate in CoW Protocol’s shadow competition.</p>
                 </div>
-                <div class="flow-arrow">↓</div>
-                <div class="cycle-step">
-                    <h5>Q1 2026: Algorithm Optimization</h5>
+                <div class="card-item">
+                    <h4>Q1 2026: Algorithm Optimization</h4>
                     <p>Refine algorithms based on competition data.</p>
                 </div>
-                <div class="flow-arrow">↓</div>
-                <div class="cycle-step">
-                    <h5>Q2-Q3 2026: Network Expansion</h5>
+                <div class="card-item">
+                    <h4>Q2-Q3 2026: Network Expansion</h4>
                     <p>Expand to Ethereum mainnet and additional networks.</p>
                 </div>
             </div>
         </section>
-
         <div class="page-nav">
             <a href="/index.html" class="cta-button secondary">← Back to Home</a>
-            <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Whitepaper</a>
+            <a href="assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Whitepaper</a>
         </div>
     </main>
-
     <footer>
         <p>This infographic visualizes the technical roadmap for building a competitive CoW Protocol solver.</p>
         <p>© 2025 AzothSolver. All rights reserved.</p>
