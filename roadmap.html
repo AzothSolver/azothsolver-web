@@ -291,6 +291,25 @@
         <p>© 2025 AzothSolver. All rights reserved.</p>
     </footer>
     <button id="back-to-top" class="back-to-top" aria-label="Back to Top">↑</button>
+
+    <script>
+        const miniLogo = document.querySelector('.mini-logo');
+        const header = document.querySelector('header');
+      
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            if (!entry.isIntersecting) {
+              miniLogo.classList.add('visible');
+            } else {
+              miniLogo.classList.remove('visible');
+            }
+          },
+          { rootMargin: "-80px 0px 0px 0px" } // triggers a bit earlier
+        );
+      
+        observer.observe(header);
+      </script>
+      
     <script>
         // Show/hide back-to-top button based on scroll position
         window.addEventListener('scroll', () => {
