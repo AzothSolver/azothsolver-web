@@ -25,10 +25,12 @@
 
 <body>
   <nav class="top-nav">
+    <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="mini-logo" width="40" height="40" />
     <a href="/" class="nav-button">Home</a>
-    <a href="/whitepaper.html" class="nav-button secondary">WP</a>
-    <a href="/roadmap.html" class="nav-button tertiary">RM</a>
+    <a href="/whitepaper.html" class="nav-button secondary">W-Paper</a>
+    <a href="/roadmap.html" class="nav-button tertiary">R-Map</a>
   </nav>
+  
   <header>
     <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="120" height="120" />
     <h1>AzothSolver</h1>
@@ -128,6 +130,24 @@
     <p>© 2025 AzothSolver. All rights reserved.</p>
   </footer>
   <button id="back-to-top" class="back-to-top" aria-label="Back to Top">↑</button>
+  <script>
+    const miniLogo = document.querySelector('.mini-logo');
+    const header = document.querySelector('header');
+  
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          miniLogo.classList.add('visible');
+        } else {
+          miniLogo.classList.remove('visible');
+        }
+      },
+      { rootMargin: "-80px 0px 0px 0px" } // triggers a bit earlier
+    );
+  
+    observer.observe(header);
+  </script>
+  
   <script>
     // Show/hide back-to-top button based on scroll position
     window.addEventListener('scroll', () => {
