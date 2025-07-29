@@ -650,3 +650,94 @@ footer {
     min-width: 0; /* Ensure table can shrink */
   }
 }
+
+/* === TOP NAVIGATION === */
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px 20px;
+  background-color: rgba(10, 9, 23, 0.9); /* Matches --background-dark with opacity */
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(138, 66, 209, 0.3);
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+.nav-button {
+  display: inline-block;
+  padding: 10px 25px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background-color: var(--accent-primary);
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: var(--accent-secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
+}
+
+.nav-button.secondary,
+.nav-button.tertiary {
+  background-color: transparent;
+  border: 2px solid currentColor;
+  color: currentColor;
+}
+
+.nav-button.secondary:hover,
+.nav-button.tertiary:hover {
+  background-color: currentColor;
+  color: white;
+}
+
+.nav-button.secondary {
+  color: var(--accent-primary);
+}
+
+.nav-button.tertiary {
+  color: var(--accent-secondary);
+}
+
+/* Adjust header padding to prevent overlap with fixed nav */
+header {
+  padding-top: 100px; /* Increased to account for nav height */
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+  .top-nav {
+    gap: 10px;
+    padding: 10px 15px;
+  }
+
+  .nav-button {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 360px) {
+  .top-nav {
+    gap: 8px;
+    padding: 8px 10px;
+  }
+
+  .nav-button {
+    font-size: 0.85rem;
+    padding: 6px 15px;
+  }
+}
