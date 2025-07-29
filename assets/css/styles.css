@@ -698,18 +698,26 @@ footer {
   color: currentColor;
 }
 
-.nav-button.secondary:hover,
-.nav-button.tertiary:hover {
-  background-color: currentColor;
-  color: white;
-}
-
 .nav-button.secondary {
   color: var(--accent-primary);
 }
 
 .nav-button.tertiary {
   color: var(--accent-secondary);
+}
+
+.nav-button.secondary:hover {
+  background-color: var(--accent-primary);
+  color: white; /* Ensure text stays white for contrast */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(138, 66, 209, 0.5);
+}
+
+.nav-button.tertiary:hover {
+  background-color: var(--accent-secondary);
+  color: white; /* Ensure text stays white for contrast */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
 }
 
 /* Adjust header padding to prevent overlap with fixed nav */
