@@ -430,7 +430,8 @@ main {
 
 .card-item {
   text-align: center;
-  max-width: 100%; /* Prevent overflow */
+  max-width: 100%;
+  /* Prevent overflow */
 }
 
 .card-item p {
@@ -457,13 +458,15 @@ main {
   width: fit-content;
   word-break: break-word;
   overflow-wrap: break-word;
-  max-width: 100%; /* Prevent overflow */
+  max-width: 100%;
+  /* Prevent overflow */
 }
 
 .flow-item {
   text-align: center;
   max-width: 150px;
-  width: 100%; /* Ensure it fits */
+  width: 100%;
+  /* Ensure it fits */
 }
 
 .flow-icon {
@@ -480,7 +483,8 @@ main {
 table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 0; /* Remove fixed min-width to prevent overflow */
+  min-width: 0;
+  /* Remove fixed min-width to prevent overflow */
 }
 
 th,
@@ -489,7 +493,8 @@ td {
   text-align: left;
   border-bottom: 1px solid rgba(140, 139, 158, 0.2);
   word-break: break-word;
-  overflow-wrap: break-word; /* Ensure long text wraps */
+  overflow-wrap: break-word;
+  /* Ensure long text wraps */
 }
 
 th {
@@ -647,7 +652,8 @@ footer {
   }
 
   table {
-    min-width: 0; /* Ensure table can shrink */
+    min-width: 0;
+    /* Ensure table can shrink */
   }
 }
 
@@ -661,7 +667,8 @@ footer {
   justify-content: center;
   gap: 15px;
   padding: 15px 20px;
-  background-color: rgba(10, 9, 23, 0.9); /* Matches --background-dark with opacity */
+  background-color: rgba(10, 9, 23, 0.9);
+  /* Matches --background-dark with opacity */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(138, 66, 209, 0.3);
   z-index: 1000;
@@ -708,21 +715,24 @@ footer {
 
 .nav-button.secondary:hover {
   background-color: var(--accent-primary);
-  color: white; /* Ensure text stays white for contrast */
+  color: white;
+  /* Ensure text stays white for contrast */
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(138, 66, 209, 0.5);
 }
 
 .nav-button.tertiary:hover {
   background-color: var(--accent-secondary);
-  color: white; /* Ensure text stays white for contrast */
+  color: white;
+  /* Ensure text stays white for contrast */
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
 }
 
 /* Adjust header padding to prevent overlap with fixed nav */
 header {
-  padding-top: 100px; /* Increased to account for nav height */
+  padding-top: 100px;
+  /* Increased to account for nav height */
 }
 
 /* === MEDIA QUERIES === */
@@ -750,28 +760,53 @@ header {
   }
 }
 
+.mini-logo {
+  display: none;
+  height: 40px;
+  width: 40px;
+  margin-right: 6px;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Shown when scrolled past header */
+.mini-logo.visible {
+  display: inline-block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+
 
 /* === BACK TO TOP BUTTON === */
 .back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  width: 50px; /* Square shape */
-  height: 50px; /* Square shape */
+  width: 50px;
+  /* Square shape */
+  height: 50px;
+  /* Square shape */
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.5rem; /* Size of the arrow */
+  font-size: 1.5rem;
+  /* Size of the arrow */
   font-weight: 700;
   color: white;
-  background-color: rgba(138, 66, 209, 0.8); /* --accent-primary with opacity */
-  background-image: url('../images/logo.webp'); /* Logo as background */
-  background-size: 80%; /* Slightly smaller logo for subtlety */
+  background-color: rgba(138, 66, 209, 0.8);
+  /* --accent-primary with opacity */
+  background-image: url('../images/logo.webp');
+  /* Logo as background */
+  background-size: 80%;
+  /* Slightly smaller logo for subtlety */
   background-position: center;
   background-repeat: no-repeat;
   border: 2px solid var(--accent-primary);
-  border-radius: 8px; /* Matches other buttons */
+  border-radius: 8px;
+  /* Matches other buttons */
   box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
-  backdrop-filter: blur(10px); /* Frosted glass effect */
-  opacity: 0; /* Hidden by default */
+  backdrop-filter: blur(10px);
+  /* Frosted glass effect */
+  opacity: 0;
+  /* Hidden by default */
   visibility: hidden;
   transition: all 0.3s ease;
   cursor: pointer;
@@ -787,7 +822,8 @@ header {
 }
 
 .back-to-top:hover {
-  background-color: var(--accent-secondary); /* Matches nav-button hover */
+  background-color: var(--accent-secondary);
+  /* Matches nav-button hover */
   border-color: var(--accent-secondary);
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
@@ -796,7 +832,8 @@ header {
 /* === MEDIA QUERIES === */
 @media (max-width: 768px) {
   .back-to-top {
-    width: 40px; /* Smaller for mobile */
+    width: 40px;
+    /* Smaller for mobile */
     height: 40px;
     font-size: 1.2rem;
   }
@@ -809,4 +846,3 @@ header {
     font-size: 1rem;
   }
 }
-
