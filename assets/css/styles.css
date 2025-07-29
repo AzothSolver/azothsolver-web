@@ -749,3 +749,64 @@ header {
     padding: 6px 15px;
   }
 }
+
+
+/* === BACK TO TOP BUTTON === */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px; /* Square shape */
+  height: 50px; /* Square shape */
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem; /* Size of the arrow */
+  font-weight: 700;
+  color: white;
+  background-color: rgba(138, 66, 209, 0.8); /* --accent-primary with opacity */
+  background-image: url('../images/logo.webp'); /* Logo as background */
+  background-size: 80%; /* Slightly smaller logo for subtlety */
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 2px solid var(--accent-primary);
+  border-radius: 8px; /* Matches other buttons */
+  box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  opacity: 0; /* Hidden by default */
+  visibility: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-secondary); /* Matches nav-button hover */
+  border-color: var(--accent-secondary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
+}
+
+/* === MEDIA QUERIES === */
+@media (max-width: 768px) {
+  .back-to-top {
+    width: 40px; /* Smaller for mobile */
+    height: 40px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .back-to-top {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+}
+
