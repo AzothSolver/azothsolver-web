@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A visual roadmap to building a competitive CoW Protocol solver, covering auction anatomy, pathfinding, CoWs, and advanced techniques.">
+    <meta property="og:title" content="CoW Protocol Solver: A Developer's Roadmap">
+    <meta property="og:description" content="A visual guide to building a competitive solver for CoW Protocol.">
+    <meta property="og:image" content="/assets/images/cow-dao-logo.webp">
+    <title>CoW Protocol Solver: A Developer's Roadmap</title>
+
+    <!-- Preload fonts -->
+    <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
+
+    <!-- Preload images -->
+    <link rel="preload" href="/assets/images/cow-dao-logo.webp" as="image">
+
+    <style>
+        /* === FONTS === */
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            src: url('/assets/fonts/inter-400.woff2') format('woff2');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/inter-700.woff2') format('woff2');
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Space Grotesk';
+            font-style: normal;
+            font-weight: 700;
+            src: url('/assets/fonts/space-grotesk-700.woff2') format('woff2');
+            font-display: swap;
+        }
+
+        /* === VARIABLES === */
+        :root {
+            --background-dark: #0A0917;
+            --background-light: #181628;
+            --accent-primary: #8A42D1;
+            --accent-secondary: #42C2D1;
+            --text-primary: #EAEAF2;
+            --text-secondary: #8C8B9E;
+        }
+
+        /* === BASE STYLES === */
+        body {
+            margin: 0;
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--background-dark);
+            background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(138, 66, 209, 0.1), transparent);
+        }
+
+        .logo {
+            max-width: 120px;
+            margin-bottom: 25px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 10px;
+            box-shadow: 0 0 15px rgba(138, 66, 209, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(138, 66, 209, 0.5);
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 15px rgba(138, 66, 209, 0.4);
+            margin: 0;
+        }
+
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--accent-secondary);
+            margin-top: 10px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .pitch {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 60px;
+        }
+
+        .pitch p {
+            margin-bottom: 2em;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .section h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.4rem;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text-primary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .highlight {
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+
+        .accent-text {
+            color: var(--accent-secondary);
+            font-weight: bold;
+        }
+
+        .flow-diagram {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .flow-item {
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .flow-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .flow-arrow {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            line-height: 1;
+        }
+
+        .flow-box {
+            border: 2px solid var(--accent-primary);
+            background-color: var(--background-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .algorithm-table {
+            background-color: rgba(24, 22, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 66, 209, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid rgba(140, 139, 158, 0.2);
+        }
+
+        th {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        td {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .cow-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .cow-card {
+            background-color: rgba(24, 22, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 66, 209, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .cow-participants {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .participant {
+            text-align: center;
+        }
+
+        .participant-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .techniques-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .technique-card {
+            background-color: rgba(24, 22, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 66, 209, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .technique-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(138, 66, 209, 0.3);
+        }
+
+        .technique-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .technique-card h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 10px;
+        }
+
+        .technique-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .kpi-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .kpi-card {
+            background-color: rgba(24, 22, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(138, 66, 209, 0.3);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .kpi-item {
+            margin-bottom: 20px;
+        }
+
+        .kpi-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .kpi-bar-container {
+            width: 100%;
+            background-color: rgba(140, 139, 158, 0.2);
+            border-radius: 4px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .kpi-bar {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .kpi-bar-surplus { background-color: var(--accent-primary); }
+        .kpi-bar-win { background-color: var(--accent-secondary); }
+        .kpi-bar-cow { background-color: var(--accent-primary); }
+        .kpi-bar-revert { background-color: #bc5090; }
+
+        .development-cycle {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .cycle-step {
+            background-color: var(--background-light);
+            border: 2px solid var(--accent-primary);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .cycle-step h5 {
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .cycle-step p {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .pixel-bar {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 60px;
+        }
+
+        .pixel {
+            width: 12px;
+            height: 12px;
+            background-color: var(--text-primary);
+            animation: pixelBlink 2s infinite;
+            border-radius: 2px;
+        }
+
+    .page-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 10px 25px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: white;
+      background-color: var(--accent-primary);
+      border: none;
+      border-radius: 8px;
+      text-decoration: none !important;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
+      background-color: var(--accent-secondary);
+    }
+    .cta-button.secondary {
+        background-color: transparent;
+        border: 2px solid var(--accent-primary);
+        color: var(--accent-primary);
+        padding: 8px 25px;
+        box-shadow: none;
+    }
+    .cta-button.secondary:hover {
+        background-color: var(--accent-primary);
+        color: white;
+        box-shadow: 0 6px 20px rgba(138, 66, 209, 0.4);
+    }
+
+        .pixel:nth-child(n) { animation-delay: calc(0.2s * var(--n)); }
+
+        @keyframes pixelBlink {
+            0% { background-color: var(--text-primary); box-shadow: 0 0 5px var(--text-primary); }
+            50% { background-color: var(--accent-primary); box-shadow: 0 0 10px var(--accent-primary); }
+            100% { background-color: var(--accent-secondary); box-shadow: 0 0 5px var(--accent-secondary); }
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.2rem; }
+            .section h2 { font-size: 1.5rem; }
+            .section h3 { font-size: 1.2rem; }
+            .flow-arrow { transform: rotate(90deg); }
+            .flow-diagram { flex-direction: column; }
+            .cow-participants { flex-direction: column; gap: 15px; }
+            .techniques-grid { grid-template-columns: 1fr; }
+            .kpi-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/assets/images/cow-dao-logo.webp" alt="CoW Protocol Logo" class="logo" width="120" height="120">
+        <h1>From <span class="accent-text">Shadow</span> to <span class="highlight">Settlement</span></h1>
+        <p class="tagline">A Visual Roadmap to Building a Competitive CoW Protocol Solver</p>
+        <div class="pixel-bar">
+            <div class="pixel" style="--n:1"></div>
+            <div class="pixel" style="--n:2"></div>
+            <div class="pixel" style="--n:3"></div>
+            <div class="pixel" style="--n:4"></div>
+            <div class="pixel" style="--n:5"></div>
+            <div class="pixel" style="--n:6"></div>
+            <div class="pixel" style="--n:7"></div>
+            <div class="pixel" style="--n:8"></div>
+            <div class="pixel" style="--n:9"></div>
+            <div class="pixel" style="--n:10"></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="page-nav">
+            <a href="/index.html" class="cta-button secondary">← Back to Home</a>
+          </div>
+
+        <section class="pitch">
+            <p>Becoming a CoW Protocol solver is more than running infrastructure. It's an algorithmic arms race where the prize is user surplus. The core of this challenge is the <span class="highlight">solver engine</span>, an intelligent system that must navigate the complexities of DeFi to find the most optimal settlement for a batch of user trades.</p>
+        </section>
+
+        <section class="section">
+            <h2>Anatomy of an Auction</h2>
+            <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its structure is the first critical step.</p>
+            
+            <div class="flow-diagram">
+                <div class="flow-item">
+                    <div class="flow-icon">📦</div>
+                    <h4>CoW Protocol Driver</h4>
+                    <p>Pre-processes data</p>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-box">
+                    <strong style="color: var(--accent-text);">POST /solve</strong><br><br>
+                    {<br>
+                    &nbsp;&nbsp;"id": "0x...",<br>
+                    &nbsp;&nbsp;"gasPrice": "...",<br>
+                    &nbsp;&nbsp;<span style="color: var(--accent-primary);">"orders": { ... },</span><br>
+                    &nbsp;&nbsp;"tokens": { ... },<br>
+                    &nbsp;&nbsp;"amms": { ... }<br>
+                    }
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-item">
+                    <div class="flow-icon">⚙️</div>
+                    <h4>Your Solver Engine</h4>
+                    <p>Finds optimal solution</p>
+                </div>
+            </div>
+            
+            <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than data validation. The most critical data points are the user <span class="highlight">orders</span> and the available on-chain <span class="highlight">AMMs</span>.</p>
+        </section>
+
+        <section class="section">
+            <h2>Foundational Strategy: Optimal Pathfinding</h2>
+            <p>Before finding CoWs, a solver must master routing trades across on-chain liquidity. This is modeled as a dynamic graph problem where the "best" path depends on trade size.</p>
+            
+            <div class="algorithm-table">
+                <h3>Choosing the Right Algorithm</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Use Case in Solver</th>
+                            <th style="text-align: center;">Splits Orders?</th>
+                            <th style="text-align: center;">Finds Arbitrage?</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dijkstra</td>
+                            <td>Too simple; fails with dynamic trade costs.</td>
+                            <td style="text-align: center;">✗</td>
+                            <td style="text-align: center;">✗</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Bellman-Ford</strong></td>
+                            <td>Excellent for detecting arbitrage (negative cycles) to capture as user surplus.</td>
+                            <td style="text-align: center;">✗</td>
+                            <td style="text-align: center; color: var(--highlight);">✓</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Max-Flow Min-Cost</strong></td>
+                            <td>The canonical approach for splitting large orders across multiple pools to minimize slippage.</td>
+                            <td style="text-align: center; color: var(--highlight);">✓</td>
+                            <td style="text-align: center;">✗</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Numerical Optimization</strong></td>
+                            <td>A practical way to solve the complex, non-linear problem of maximizing output across multiple AMM curves.</td>
+                            <td style="text-align: center; color: var(--highlight);">✓</td>
+                            <td style="text-align: center;">✗</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="text-align: center; margin-top: 20px;">A competitive solver combines multiple algorithms: one for arbitrage detection and another for optimal order splitting.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Core Edge: Mastering Coincidence of Wants (CoWs)</h2>
+            <p>The true power of CoW Protocol is settling trades peer-to-peer, avoiding AMM fees and slippage. A solver's ability to find these "CoWs" is its primary source of alpha.</p>
+            
+            <div class="cow-examples">
+                <div class="cow-card">
+                    <h3>Simple CoW</h3>
+                    <p>A direct peer-to-peer trade. Alice wants to sell ETH for USDC, Bob wants to sell USDC for ETH. The solver matches them directly.</p>
+                    <div class="cow-participants">
+                        <div class="participant">
+                            <div class="participant-icon">👩‍🦱</div>
+                            <p><strong>Alice</strong></p>
+                            <p style="color: var(--accent-text);">ETH → USDC</p>
+                        </div>
+                        <div style="font-size: 2rem; color: var(--accent-primary);">↔</div>
+                        <div class="participant">
+                            <div class="participant-icon">👨‍🦲</div>
+                            <p><strong>Bob</strong></p>
+                            <p style="color: var(--accent-text);">USDC → ETH</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cow-card">
+                    <h3>Ring CoW</h3>
+                    <p>A multi-party trade forming a closed loop of liquidity. This is the most valuable and complex CoW to find.</p>
+                    <div class="cow-participants">
+                        <div class="participant">
+                            <div class="participant-icon">👩‍🦱</div>
+                            <p><strong>Alice</strong></p>
+                            <p style="color: var(--accent-text);">A → B</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="participant">
+                            <div class="participant-icon">👨‍🦲</div>
+                            <p><strong>Bob</strong></p>
+                            <p style="color: var(--accent-text);">B → C</p>
+                        </div>
+                        <div class="flow-arrow">→</div>
+                        <div class="participant">
+                            <div class="participant-icon">🧑‍🚀</div>
+                            <p><strong>Charlie</strong></p>
+                            <p style="color: var(--accent-text);">C → A</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>The Elite Solver's Toolkit</h2>
+            <p>Top solvers gain their edge by optimizing at the margins. These advanced techniques separate the winners from the rest of the pack.</p>
+            
+            <div class="techniques-grid">
+                <div class="technique-card">
+                    <div class="technique-icon">⛽️</div>
+                    <h4>Precision Gas Estimation</h4>
+                    <p>Internal gas models and simulation beat standard estimates, leading to more competitive bids.</p>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">🌊</div>
+                    <h4>Superior Liquidity</h4>
+                    <p>Integrating DEX aggregators and private market makers provides better pricing than baseline AMMs.</p>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">🤖</div>
+                    <h4>Benign MEV Capture</h4>
+                    <p>Using arbitrage profits to improve user prices, not for personal gain, increases the solution score.</p>
+                </div>
+                <div class="technique-card">
+                    <div class="technique-icon">⚡️</div>
+                    <h4>Flash Loans</h4>
+                    <p>Unlocking complex settlements and arbitrage with virtual capital, increasing capital efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Benchmarking for Victory</h2>
+            <p>A solver is a dynamic trading agent. Success requires constant monitoring, analysis, and iteration based on key performance indicators (KPIs) from the risk-free Shadow Competition.</p>
+            
+            <div class="kpi-section">
+                <div class="kpi-card">
+                    <h3>Key Performance Indicators</h3>
+                    <div class="kpi-item">
+                        <div class="kpi-label">
+                            <span>Surplus Generation</span>
+                            <span class="highlight">Highest Priority</span>
+                        </div>
+                        <div class="kpi-bar-container">
+                            <div class="kpi-bar kpi-bar-surplus" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-label">
+                            <span>Auction Win Rate</span>
+                            <span class="accent-text">Measures Competitiveness</span>
+                        </div>
+                        <div class="kpi-bar-container">
+                            <div class="kpi-bar kpi-bar-win" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-label">
+                            <span>CoW Rate</span>
+                            <span>Measures Sophistication</span>
+                        </div>
+                        <div class="kpi-bar-container">
+                            <div class="kpi-bar kpi-bar-cow" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="kpi-item">
+                        <div class="kpi-label">
+                            <span>Revert Rate</span>
+                            <span>Measures Reliability (Aim for 0%)</span>
+                        </div>
+                        <div class="kpi-bar-container">
+                            <div class="kpi-bar kpi-bar-revert" style="width: 5%"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="kpi-card">
+                    <h3>The Iterative Development Cycle</h3>
+                    <div class="development-cycle">
+                        <div class="cycle-step">
+                            <h5>1. Hypothesize</h5>
+                            <p>"Integrating a new PMM will improve my win rate."</p>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="cycle-step">
+                            <h5>2. Implement</h5>
+                            <p>Code the new liquidity source adapter.</p>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="cycle-step">
+                            <h5>3. Test (Shadow Competition)</h5>
+                            <p>Deploy and collect data risk-free.</p>
+                        </div>
+                        <div class="flow-arrow">↓</div>
+                        <div class="cycle-step">
+                            <h5>4. Analyze & Iterate</h5>
+                            <p>Compare KPIs, reverse-engineer losses, and repeat.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="page-nav">
+            <a href="/index.html" class="cta-button secondary">← Back to Home</a>
+            <a href="/roadmap.html" target="_blank" rel="noopener noreferrer" class="cta-button">Back to top</a>
+          </div>
+    </main>
+
+    <footer>
+        <p>This infographic visualizes the technical roadmap for CoW Protocol solver development.</p>
+        <p>© 2025 CoW Protocol Solver Roadmap. AzothSolver. All rights reserved.</p>
+    </footer>
+</body>
+</html>
