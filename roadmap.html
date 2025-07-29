@@ -21,6 +21,11 @@
     <link rel="preload" href="/assets/images/cow-dao-logo.webp" as="image">
 
     <style>
+        /* === GLOBAL BOX-SIZING === */
+        * {
+            box-sizing: border-box;
+        }
+
         /* === FONTS === */
         @font-face {
             font-family: 'Inter';
@@ -116,6 +121,7 @@
             line-height: 1.7;
             color: var(--text-primary);
             margin-bottom: 60px;
+            overflow-wrap: anywhere; /* Prevent text overflow */
         }
 
         .pitch p {
@@ -148,6 +154,7 @@
             color: var(--text-primary);
             margin-bottom: 30px;
             text-align: center;
+            overflow-wrap: anywhere; /* Prevent text overflow */
         }
 
         .highlight {
@@ -172,6 +179,7 @@
         .flow-item {
             text-align: center;
             min-width: 120px;
+            max-width: 100%; /* Prevent overflow */
         }
 
         .flow-icon {
@@ -197,6 +205,8 @@
             max-width: 400px;
             margin-left: auto;
             margin-right: auto;
+            word-break: break-word; /* Handle long strings */
+            overflow-wrap: anywhere;
         }
 
         .algorithm-table {
@@ -206,6 +216,7 @@
             border-radius: 12px;
             padding: 30px;
             margin: 40px 0;
+            max-width: 100%; /* Prevent overflow */
         }
 
         table {
@@ -253,6 +264,7 @@
             align-items: center;
             justify-content: space-around;
             margin: 20px 0;
+            max-width: 100%; /* Prevent overflow */
         }
 
         .participant {
@@ -414,7 +426,8 @@
             align-items: center;
             margin-bottom: 40px;
             flex-wrap: wrap;
-            gap: 15px;
+            gap: 10px; /* Reduced gap for mobile */
+            max-width: 100%; /* Prevent overflow */
         }
 
         .cta-button {
@@ -433,6 +446,7 @@
             box-shadow: 0 4px 15px rgba(138, 66, 209, 0.4);
             transition: all 0.3s ease;
             cursor: pointer;
+            max-width: 100%; /* Prevent button overflow */
         }
 
         .cta-button:hover {
@@ -542,11 +556,12 @@
 
             .flow-box {
                 padding: 15px;
-                font-size: 0.85rem;
+                font-size: 0.9rem; /* Increased for readability */
+                max-width: 100%; /* Fit within viewport */
             }
 
             .cta-button {
-                padding: 12px 20px;
+                padding: 10px 15px; /* Reduced padding for mobile */
                 font-size: 0.95rem;
             }
 
@@ -562,10 +577,36 @@
             .page-nav {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 8px; /* Further reduced gap */
             }
 
             .logo {
                 max-width: 100px;
+            }
+
+            main {
+                padding: 0 10px; /* Reduced padding for narrow screens */
+            }
+        }
+
+        /* === ULTRA-NARROW SCREENS === */
+        @media (max-width: 360px) {
+            main {
+                padding: 0 8px;
+            }
+
+            .cta-button {
+                padding: 8px 10px;
+                font-size: 0.9rem;
+            }
+
+            .page-nav {
+                gap: 6px;
+            }
+
+            .flow-box {
+                padding: 10px;
+                font-size: 0.85rem;
             }
         }
     </style>
