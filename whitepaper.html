@@ -7,7 +7,7 @@
   <meta property="og:title" content="AzothSolver Whitepaper">
   <meta property="og:description" content="Technical implementation details for our CoW Protocol solver infrastructure.">
   <meta property="og:image" content="/assets/images/logo.webp">
-  <title>AzothSolver Whitepaper</title>
+  <title>Whitepaper</title>
 
   <!-- Preload fonts -->
   <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
@@ -227,5 +227,22 @@
   <footer>
     <p>© 2025 AzothSolver. All rights reserved.</p>
   </footer>
+  <button id="back-to-top" class="back-to-top" aria-label="Back to Top">↑</button>
+  <script>
+    // Show/hide back-to-top button based on scroll position
+    window.addEventListener('scroll', () => {
+      const button = document.getElementById('back-to-top');
+      if (window.scrollY > 300) { // Show button after scrolling 300px
+        button.classList.add('visible');
+      } else {
+        button.classList.remove('visible');
+      }
+    });
+  
+    // Smooth scroll to top when button is clicked
+    document.getElementById('back-to-top').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
 </body>
 </html>
