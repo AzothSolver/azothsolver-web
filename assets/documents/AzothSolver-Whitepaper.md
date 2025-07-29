@@ -8,16 +8,9 @@
 
 ---
 
-## Navigation
-
-- [Back to Home](/index.html)
-- [Download PDF](/assets/documents/AzothSolver-Whitepaper.pdf)
-
----
-
 ## Abstract
 
-AzothSolver is a performance-focused solver implementation for CoW Protocol, built with Frankfurt-based bare metal infrastructure and optimized for sub-millisecond execution latency. This document outlines our technical architecture, development approach, and transparent progress toward CoW Protocol's shadow competition entry in Q4 2025.
+AzothSolver is a performance-focused solver implementation for CoW Protocol, built with Frankfurt-based bare metal infrastructure and optimized for sub-5millisecond execution latency. This document outlines our technical architecture, development approach, and transparent progress toward CoW Protocol's shadow competition entry in Q4 2025.
 
 ---
 
@@ -35,7 +28,7 @@ CoW Protocol's batch auction system creates a competitive environment where solv
 
 ### Infrastructure Architecture
 
-- **Location**: Frankfurt-based bare metal server optimized for <0.5ms latency to CoW Protocol endpoints.
+- **Location**: Frankfurt-based bare metal server optimized for < 5ms latency to CoW Protocol endpoints.
 - **Operating System**: Ubuntu 24.04 with real-time kernel patches for predictable scheduling.
 - **Networking**: DPDK-based packet processing with kernel bypass for reduced latency variance.
 - **Node Setup**: Local node infrastructure for direct blockchain state access and transaction broadcasting.
