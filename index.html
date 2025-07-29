@@ -9,20 +9,34 @@
   <meta property="og:image" content="/assets/images/logo.webp">
   <title>AzothSolver</title>
 
-  <!-- Preload all images -->
+  <!-- Preload assets -->
   <link rel="preload" href="assets/images/logo.webp" as="image">
   <link rel="preload" href="assets/images/cow-dao-logo.webp" as="image">
   <link rel="preload" href="assets/images/rust-logo.webp" as="image">
   <link rel="preload" href="assets/images/alchemy-logo.webp" as="image">
   <link rel="preload" href="assets/images/base-logo.webp" as="image">
-
-  <!-- Preload fonts -->
   <link rel="preload" href="/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
-    /* === FONTS === */
+    /* === GLOBAL RESET === */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #0A0917;
+      background-image: radial-gradient(ellipse at top, #2A2640 0%, #0A0917 70%);
+      color: #EAEAF2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
     @font-face {
       font-family: 'Inter';
       font-style: normal;
@@ -30,6 +44,7 @@
       src: url('/assets/fonts/inter-400.woff2') format('woff2');
       font-display: swap;
     }
+
     @font-face {
       font-family: 'Inter';
       font-style: normal;
@@ -37,6 +52,7 @@
       src: url('/assets/fonts/inter-700.woff2') format('woff2');
       font-display: swap;
     }
+
     @font-face {
       font-family: 'Space Grotesk';
       font-style: normal;
@@ -45,7 +61,6 @@
       font-display: swap;
     }
 
-    /* === VARIABLES === */
     :root {
       --background-dark: #0A0917;
       --background-light: #181628;
@@ -53,18 +68,6 @@
       --accent-secondary: #42C2D1;
       --text-primary: #EAEAF2;
       --text-secondary: #8C8B9E;
-    }
-
-    /* === BASE STYLES === */
-    body {
-      margin: 0;
-      font-family: 'Inter', Arial, sans-serif;
-      background-color: var(--background-dark);
-      background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
-      color: var(--text-primary);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
     }
 
     header {
@@ -148,7 +151,7 @@
 
     .partner-logos img {
       height: 35px;
-      max-width: 120px;
+      max-width: 100px;
       filter: grayscale(100%) opacity(60%);
       transition: all 0.3s ease;
     }
@@ -260,26 +263,17 @@
       box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
     }
 
-    .whitepaper-cta {
-      margin-top: 50px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
+    .whitepaper-cta,
     .navigation-cta {
-      margin-top: 60px;
-      margin-bottom: 40px;
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      margin-top: 50px;
     }
 
     .dev-tracker {
-      margin-top: 80px;
-      margin-bottom: 60px;
+      margin: 80px 0 60px;
     }
 
     .dev-tracker h2 {
@@ -299,7 +293,7 @@
 
     .tracker-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 15px;
       max-width: 700px;
       margin: 0 auto;
@@ -348,11 +342,37 @@
       line-height: 1.4;
     }
 
+    /* === MOBILE TWEAKS === */
     @media (max-width: 768px) {
-      .whitepaper-cta,
-      .navigation-cta {
-        flex-direction: column;
-        align-items: center;
+      h1 {
+        font-size: 2rem;
+      }
+
+      .pitch {
+        font-size: 1rem;
+      }
+
+      .cta-button {
+        font-size: 1rem;
+        padding: 12px 24px;
+      }
+
+      header {
+        padding: 30px 10px;
+      }
+
+      .tracker-item {
+        padding: 12px 14px;
+        gap: 10px;
+      }
+
+      .tracker-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-logos img {
+        max-width: 80px;
+        height: auto;
       }
     }
   </style>
