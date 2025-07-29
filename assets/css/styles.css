@@ -677,9 +677,9 @@ footer {
 
 .nav-button {
   display: inline-block;
-  padding: 6px 15px;
+  padding: 6px 9px;
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: white;
   background-color: var(--accent-primary);
@@ -744,7 +744,6 @@ header {
 
   .nav-button {
     font-size: 0.9rem;
-    padding: 8px 20px;
   }
 }
 
@@ -756,14 +755,13 @@ header {
 
   .nav-button {
     font-size: 0.85rem;
-    padding: 6px 15px;
   }
 }
 
 .mini-logo {
   display: none;
-  height: 40px;
-  width: 40px;
+  height: 36px;
+  width: 36px;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
