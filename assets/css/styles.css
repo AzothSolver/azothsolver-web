@@ -664,9 +664,9 @@ footer {
   left: 0;
   right: 0;
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  padding: 15px 20px;
+  justify-content: right;
+  gap: 6px;
+  padding: 9px 15px;
   background-color: rgba(10, 9, 23, 0.9);
   /* Matches --background-dark with opacity */
   backdrop-filter: blur(10px);
@@ -677,7 +677,7 @@ footer {
 
 .nav-button {
   display: inline-block;
-  padding: 10px 25px;
+  padding: 6px 15px;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   font-weight: 700;
@@ -764,7 +764,6 @@ header {
   display: none;
   height: 40px;
   width: 40px;
-  margin-right: 6px;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
