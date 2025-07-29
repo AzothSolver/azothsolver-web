@@ -4,7 +4,7 @@
 
 # 🌌 AzothSolver – Frontend Web Page
 
-This is the **official landing page** for **AzothSolver**, a high-performance solver for the CoW Protocol ecosystem, optimized for sub-millisecond execution latency and built on Frankfurt-based bare metal infrastructure. The webpage introduces AzothSolver’s vision, technical architecture, and progress toward the CoW Protocol shadow competition in Q4 2025, with a futuristic, alchemy-inspired design.
+This is the **official landing page** for **AzothSolver**, a high-performance solver for the CoW Protocol ecosystem, optimized for sub-5millisecond execution latency and built on Frankfurt-based bare metal infrastructure. The webpage introduces AzothSolver’s vision, technical architecture, and progress toward the CoW Protocol shadow competition in Q4 2025, with a futuristic, alchemy-inspired design.
 
 ---
 
@@ -12,7 +12,7 @@ This is the **official landing page** for **AzothSolver**, a high-performance so
 
 **AzothSolver** is a performance-focused solver designed for CoW Protocol’s batch auction system, emphasizing:
 
-- **Infrastructure Excellence**: Frankfurt-based bare metal servers with <0.5ms latency to CoW Protocol endpoints, using DPDK-based networking and real-time kernel patches.
+- **Infrastructure Excellence**: Frankfurt-based bare metal servers with < 5ms latency to CoW Protocol endpoints, using DPDK-based networking and real-time kernel patches.
 - **Algorithmic Efficiency**: Custom Rust-based pathfinding algorithms optimized for CoW Protocol’s constraints.
 - **Reliability & Transparency**: Robust monitoring with Prometheus and Grafana, with transparent performance updates shared via [X (@AzothSolver)](https://x.com/AzothSolver).
 
