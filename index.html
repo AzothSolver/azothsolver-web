@@ -4,27 +4,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description"
-    content="AzothSolver: Experimental high-performance solver architecture for CoW Protocol with sub-5 millisecond latency targets and kernel-level networking." />
-  <meta property="og:title" content="AzothSolver">
-  <meta property="og:description" content="High-frequency trading solver for CoW Protocol.">
-  <meta property="og:image" content="assets/images/logo.webp">
+  <meta name="description" content="AzothSolver: Experimental high-performance solver for CoW Protocol with sub-5ms latency and kernel-level networking." />
+
+  <!-- Open Graph Tags (used by Twitter/X and other platforms) -->
+  <meta property="og:title" content="AzothSolver: High-Performance CoW Solver" />
+  <meta property="og:description" content="Experimental solver for CoW Protocol with sub-5ms latency, built with DPDK and bare metal hosting." />
+  <meta property="og:image" content="https://azothsolver-web.vercel.app/assets/images/twitter-card.webp" />
+  <meta property="og:image:alt" content="AzothSolver Logo" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://azothsolver-web.vercel.app/" />
+  <meta property="og:site_name" content="AzothSolver" />
+
+  <!-- Twitter/X Card Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@AzothSolver" />
+  <meta name="twitter:creator" content="@AzothSolver" />
+  <meta name="twitter:title" content="AzothSolver: High-Performance CoW Solver" />
+  <meta name="twitter:description" content="Experimental solver for CoW Protocol with sub-5ms latency, built with DPDK and bare metal hosting." />
+  <meta name="twitter:image" content="https://azothsolver-web.vercel.app/assets/images/twitter-card.webp" />
+  <meta name="twitter:image:alt" content="AzothSolver Logo" />
+
   <title>AzothSolver</title>
 
+  <!-- Favicon and PWA Icons -->
+  <link rel="icon" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" sizes="180x180" href="https://azothsolver-web.vercel.app/assets/images/favicon/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-16x16.png" />
+  <link rel="manifest" href="https://azothsolver-web.vercel.app/assets/images/favicon/site.webmanifest" />
+
   <!-- Preload assets -->
-  <link rel="preload" href="assets/images/logo.webp" as="image">
-  <link rel="preload" href="assets/images/cow-dao-logo.webp" as="image">
-  <link rel="preload" href="assets/images/rust-logo.webp" as="image">
-  <link rel="preload" href="assets/images/alchemy-logo.webp" as="image">
-  <link rel="preload" href="assets/images/base-logo.webp" as="image">
-  <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/logo.webp" as="image" />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/cow-dao-logo.webp" as="image" />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/rust-logo.webp" as="image" />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/alchemy-logo.webp" as="image" />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/base-logo.webp" as="image" />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin />
 
   <!-- Link to external CSS file -->
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="https://azothsolver-web.vercel.app/assets/css/styles.css" />
 </head>
-
 <body>
 
   <nav class="top-nav">
