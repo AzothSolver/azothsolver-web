@@ -140,7 +140,13 @@
   <!-- Link to external CSS file -->
   <link rel="preload" as="style" href="https://azothsolver-web.vercel.app/assets/css/styles.css" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://azothsolver-web.vercel.app/assets/css/styles.css"></noscript>
-  </head>
+
+  <link rel="preload" href="/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin>
+    
+
+</head>
 
 <body>
 
@@ -153,7 +159,9 @@
       <a href="/" class="nav-button secondary" aria-label="Home">
         home </a>
       <a href="/roadmap.html" class="nav-button tertiary">roadmap</a>
-      <a href="/whitepaper.html" class="nav-button secondary">whitepaper</a>
+      <a href="/whitepaper.html" class="nav-button secondary">wp</a>
+      <a href="/about.html" class="nav-button tertiary">about</a>
+
     </div>
   </nav>
 
@@ -192,7 +200,7 @@
       </a>
 
       <a href="/roadmap.html" class="cta-button tertiary">
-        📚 Developer Roadmap
+        📚 Roadmap
       </a>
     </section>
 
