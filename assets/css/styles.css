@@ -658,17 +658,18 @@ footer {
 }
 
 /* === TOP NAVIGATION === */
+/* === TOP NAVIGATION === */
 .top-nav {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   display: flex;
-  justify-content: right;
+  justify-content: space-between; /* Changed to space-between to position logo on left, buttons on right */
+  align-items: center; /* Vertically center items */
   gap: 6px;
-  padding: 9px 3px;
+  padding: 9px 15px; /* Slightly increased padding for better spacing */
   background-color: rgba(10, 9, 23, 0.9);
-  /* Matches --background-dark with opacity */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(138, 66, 209, 0.3);
   z-index: 1000;
@@ -716,7 +717,6 @@ footer {
 .nav-button.secondary:hover {
   background-color: var(--accent-primary);
   color: white;
-  /* Ensure text stays white for contrast */
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(138, 66, 209, 0.5);
 }
@@ -724,18 +724,29 @@ footer {
 .nav-button.tertiary:hover {
   background-color: var(--accent-secondary);
   color: white;
-  /* Ensure text stays white for contrast */
   transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(66, 194, 209, 0.5);
 }
 
-/* Adjust header padding to prevent overlap with fixed nav */
-header {
-  padding-top: 100px;
-  /* Increased to account for nav height */
+/* Mini logo styles */
+.mini-logo {
+  height: 36px;
+  width: 36px;
+  opacity: 0; /* Start invisible */
+  transition: opacity 0.3s ease; /* Smooth opacity transition */
 }
 
-/* === MEDIA QUERIES === */
+/* Shown when scrolled past header */
+.mini-logo.visible {
+  opacity: 1; /* Fade in */
+}
+
+/* Ensure header accounts for fixed nav height */
+header {
+  padding-top: 80px; /* Adjusted to account for nav height */
+}
+
+/* Media queries for responsive adjustments */
 @media (max-width: 768px) {
   .top-nav {
     gap: 10px;
@@ -756,20 +767,17 @@ header {
   .nav-button {
     font-size: 0.85rem;
   }
+
+  .mini-logo {
+    height: 30px;
+    width: 30px;
+  }
 }
 
-.mini-logo {
-  display: none;
-  height: 36px;
-  width: 36px;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-/* Shown when scrolled past header */
-.mini-logo.visible {
-  display: inline-block;
-  opacity: 1;
-  transform: scale(1);
+.nav-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
 }
 
 
@@ -843,3 +851,5 @@ header {
     font-size: 1rem;
   }
 }
+
+
