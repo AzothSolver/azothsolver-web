@@ -10,7 +10,8 @@
 
 ## Abstract
 
-AzothSolver is a performance-focused solver implementation for CoW Protocol, built with Frankfurt-based bare metal infrastructure and optimized for sub-5millisecond execution latency. This document outlines our technical architecture, development approach, and transparent progress toward CoW Protocol's shadow competition entry in Q4 2025.
+AzothSolver is a performance-focused solver implementation for CoW Protocol, built with Frankfurt-based bare metal infrastructure and optimized for sub-5 millisecond execution latency. This document outlines the system’s technical architecture, development approach, and roadmap toward integration with CoW Protocol's shadow competition environment in Q4 2025.
+
 
 ---
 
@@ -114,8 +115,12 @@ Long-term development will be guided by:
 🌐 [https://azothsolver-web.vercel.app](https://azothsolver-web.vercel.app)  
 🐦 [Follow development updates on X - @AzothSolver](https://x.com/AzothSolver)  
 
-*Development progress and performance metrics will be shared transparently as we progress through the shadow competition and beyond.*
+
+
+*Performance metrics and architecture updates will be shared as development continues.*
 
 © 2025 AzothSolver. All rights reserved.
+
+
 
 
