@@ -7,7 +7,6 @@
     <meta name="description"
         content="AzothSolver Roadmap: A visual guide to building a competitive CoW Protocol solver, covering auction anatomy, pathfinding, and advanced techniques." />
 
-    <!-- Open Graph Tags (used by Twitter/X and other platforms) -->
     <meta property="og:title" content="AzothSolver: CoW Protocol Solver Roadmap" />
     <meta property="og:description"
         content="Visual guide to building a high-performance CoW Protocol solver, covering auctions, pathfinding, and advanced techniques." />
@@ -19,7 +18,6 @@
     <meta property="og:url" content="https://azothsolver-web.vercel.app/roadmap.html" />
     <meta property="og:site_name" content="AzothSolver" />
 
-    <!-- Twitter/X Card Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@AzothSolver" />
     <meta name="twitter:creator" content="@AzothSolver" />
@@ -31,7 +29,6 @@
 
     <title>AzothSolver: CoW Protocol Solver Roadmap</title>
 
-    <!-- Favicon and PWA Icons -->
     <link rel="icon" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" sizes="180x180"
         href="https://azothsolver-web.vercel.app/assets/images/favicon/apple-touch-icon.png" />
@@ -42,7 +39,6 @@
     <link rel="manifest" href="https://azothsolver-web.vercel.app/assets/images/favicon/site.webmanifest" />
 
     
-    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
@@ -92,7 +88,7 @@
         </section>
         <section class="content-section">
             <h2>AzothSolver’s Approach</h2>
-            <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub-0.5ms latency</span> using
+            <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub 5ms latency</span> using
                 Frankfurt-based bare metal servers and <span class="highlight">Rust-based algorithms</span>. Our goal is
                 to compete in the CoW Protocol shadow competition in Q4 2025. See the <a
                     href="/whitepaper.html">whitepaper</a> for details.</p>
@@ -104,9 +100,8 @@
                 structure is the first critical step.</p>
             <div class="flow-diagram">
                 <div class="flow-item">
-                    <div class="flow-icon" aria-label="CoW Protocol Driver icon">📦</div>
-                    <h4>CoW Protocol Driver</h4>
-                    <p>Pre-processes data</p>
+                    <div class="flow-label">[Protocol Driver]</div>
+                    <p style="margin-top: 15px;">Pre-processes data</p>
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-box">
@@ -121,9 +116,8 @@
                 </div>
                 <div class="flow-arrow">→</div>
                 <div class="flow-item">
-                    <div class="flow-icon" aria-label="Solver Engine icon">⚙️</div>
-                    <h4>Your Solver Engine</h4>
-                    <p>Finds optimal solution</p>
+                    <div class="flow-label">[Solver Engine]</div>
+                    <p style="margin-top: 15px;">Finds optimal solution</p>
                 </div>
             </div>
             <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than
@@ -189,14 +183,12 @@
                         The solver matches them directly.</p>
                     <div class="cow-participants">
                         <div class="participant">
-                            <div class="participant-icon" aria-label="Alice participant icon">👩‍🦱</div>
-                            <p><strong>Alice</strong></p>
+                            <div class="participant-label">User A</div>
                             <p class="accent-text">ETH → USDC</p>
                         </div>
                         <div class="flow-arrow">↔</div>
                         <div class="participant">
-                            <div class="participant-icon" aria-label="Bob participant icon">👨‍🦲</div>
-                            <p><strong>Bob</strong></p>
+                            <div class="participant-label">User B</div>
                             <p class="accent-text">USDC → ETH</p>
                         </div>
                     </div>
@@ -207,20 +199,17 @@
                         to find.</p>
                     <div class="cow-participants">
                         <div class="participant">
-                            <div class="participant-icon" aria-label="Alice participant icon">👩‍🦱</div>
-                            <p><strong>Alice</strong></p>
+                            <div class="participant-label">User A</div>
                             <p class="accent-text">A → B</p>
                         </div>
                         <div class="flow-arrow">→</div>
                         <div class="participant">
-                            <div class="participant-icon" aria-label="Bob participant icon">👨‍🦲</div>
-                            <p><strong>Bob</strong></p>
+                            <div class="participant-label">User B</div>
                             <p class="accent-text">B → C</p>
                         </div>
                         <div class="flow-arrow">→</div>
                         <div class="participant">
-                            <div class="participant-icon" aria-label="Charlie participant icon">🧑‍🚀</div>
-                            <p><strong>Charlie</strong></p>
+                            <div class="participant-label">User C</div>
                             <p class="accent-text">C → A</p>
                         </div>
                     </div>
@@ -233,24 +222,24 @@
                 from the rest of the pack.</p>
             <div class="content-list card-grid">
                 <div class="card-item">
-                    <div class="technique-icon" aria-label="Precision Gas Estimation icon">⛽️</div>
+                    <div class="technique-label">gas.estimate()</div>
                     <h3>Precision Gas Estimation</h3>
                     <p>Internal gas models and simulation beat standard estimates, leading to more competitive bids.</p>
                 </div>
                 <div class="card-item">
-                    <div class="technique-icon" aria-label="Superior Liquidity icon">🌊</div>
+                    <div class="technique-label">route.findBest()</div>
                     <h3>Superior Liquidity</h3>
                     <p>Integrating DEX aggregators and private market makers provides better pricing than baseline AMMs.
                     </p>
                 </div>
                 <div class="card-item">
-                    <div class="technique-icon" aria-label="Benign MEV Capture icon">🤖</div>
+                    <div class="technique-label">arb.capture()</div>
                     <h3>Benign MEV Capture</h3>
                     <p>Using arbitrage profits to improve user prices, not for personal gain, increases the solution
                         score.</p>
                 </div>
                 <div class="card-item">
-                    <div class="technique-icon" aria-label="Flash Loans icon">⚡️</div>
+                    <div class="technique-label">flash.borrow()</div>
                     <h3>Flash Loans</h3>
                     <p>Unlocking complex settlements and arbitrage with virtual capital, increasing capital efficiency.
                     </p>
@@ -338,7 +327,7 @@
                     <p>Deploy Frankfurt bare metal servers and telemetry systems.</p>
                 </div>
                 <div class="card-item">
-                    <h4>Q4 2025: Shadow Competition</h4>
+                    <h4>Q3-Q4 2025: Shadow Competition</h4>
                     <p>Launch core solver and participate in CoW Protocol’s shadow competition.</p>
                 </div>
                 <div class="card-item">
