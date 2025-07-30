@@ -93,64 +93,85 @@
   <main>
     <section class="pitch">
       <h1>About AzothSolver</h1>
-      <p class="tagline">Built for performance. Driven by architecture.</p>
+      <p class="tagline">Latency-focused. Rust-native. Built for CoW Protocol.</p>
       <p>
-        AzothSolver is an experimental, latency-optimized solver designed for the <strong>CoW Protocol</strong> auction environment. It targets <strong>sub-5 millisecond response times</strong> and is architected from scratch in Rust with zero reliance on Python tooling or third-party orchestration layers.
+        <strong>AzothSolver</strong> is a high-performance solver engineered for the CoW Protocol auction environment. It’s designed from scratch in Rust with full vertical control — no Python wrappers, no third-party orchestrators, and no reliance on boilerplate templates.
       </p>
       <p>
-        The solver is fully self-hosted, tuned for bare-metal performance, and intended for long-term use as a refiller, relayer, or autonomous solver candidate. AzothSolver does not rely on off-the-shelf abstractions — everything is built in-house for vertical control.
+        Built for <strong>sub-5 millisecond latency</strong>, AzothSolver operates on Frankfurt-based bare-metal infrastructure with system-level tuning and custom networking. Its architecture prioritizes speed, determinism, and auction adaptability.
       </p>
       <p>
-        Our approach enables <strong>superior price discovery</strong> through faster batch optimization, <strong>reduced MEV leakage</strong> via optimized routing algorithms, and <strong>enhanced trader protection</strong> through improved surplus generation for CoW Protocol users.
+        The project’s goal is to offer an independent solver path focused on performance, minimal attack surface, and eventual eligibility for refiller or relayer roles within the CoW ecosystem.
       </p>
     </section>
-
-          <section class="pitch">
-        <h2>About The Builder</h2>
-        <p>
-          I'm a smart contract developer with experience building DeFi infrastructure and system optimization. My background includes developing <strong>tax-enabled launchpad systems</strong>, <strong>crowdfunding platforms</strong>, and <strong>governance voting dApps</strong>, alongside <strong>cross-chain messaging protocols</strong> that handle call data routing between networks.
-        </p>
-        <p>
-          I've participated in <strong>Solidity audit contests</strong> and enjoy working on system performance optimization challenges. My background includes operating <strong>multi-node blockchain clusters</strong>, and my projects have included API-integrated dApps, monitoring tools with Telegram integration, and backends leveraging <strong>Gnosis Safe</strong> for secure multi-signature operations.
-        </p>
-        <p>
-          AzothSolver represents my exploration into auction mechanics and low-latency systems. It's built with a focus on clean architecture and performance, aiming to contribute constructively to the CoW Protocol ecosystem while learning from the broader solver community.
-        </p>
-      </section>
-
-      <section class="pitch">
-        <h2>Current Status & Timeline</h2>
-        <p>
-          <strong>Phase 1 - Active:</strong> Currently participating in the CoW Protocol Shadow Competition with full-stack deployment and operational JSON endpoints. Infrastructure is live on Frankfurt bare-metal servers with initial benchmarking underway.
-        </p>
-        <p>
-          <strong>Q4 2025:</strong> Performance validation and comprehensive benchmarking completion. Target achievement of sub-5ms auction response times with detailed metrics publication.
-        </p>
-        <p>
-          <strong>Q1 2026:</strong> Community contribution phase with open-source diagnostics tools and potential CoW DAO grant proposal for ecosystem development initiatives.
-        </p>
-      </section>
-      
-      <section class="pitch">
-        <h2>CoW DAO Grant Vision</h2>
-        <p>
-          AzothSolver is a self-funded, high-performance solver in active development, engineered to achieve <strong>sub-5ms response times</strong> in CoW Protocol auctions. I'm committed to aligning its capabilities with CoW DAO's goals, with plans to pursue a grant to accelerate ecosystem impact once key performance benchmarks are validated.
-        </p>
-        <p>
-          Potential grant funding would fuel targeted contributions, such as open-source <strong>diagnostics tools</strong> for solver performance, detailed <strong>benchmarking reports</strong> to enhance protocol transparency, and selective open-sourcing of non-core components to benefit the CoW community.
-        </p>
-        <p>
-          To maintain competitive edge and explore future models like solver-as-a-service or zero-knowledge proving systems, the solver's core will remain closed-source for now. My focus is on delivering measurable value to CoW DAO through performance, reliability, and community-driven tools.
-        </p>
-      </section>
-
+  
+    <section class="pitch">
+      <h2>Who’s Behind It</h2>
+      <p>
+        AzothSolver is a solo-built project led by a smart contract developer with a strong focus on system optimization, infrastructure performance, and auction theory.
+      </p>
+      <p>
+        Past experience includes:
+      </p>
+      <ul>
+        <li>Smart contract development with Solidity, including tax-based launchpads and governance dApps</li>
+        <li>Participation in Solidity audit contests and protocol-level security reviews</li>
+        <li>Development of cross-chain messaging systems and API-integrated backend tools</li>
+        <li>Infrastructure projects using Gnosis Safe, Docker, Linux, and monitoring via Telegram bots</li>
+      </ul>
+      <p>
+        AzothSolver is the builder’s deep-dive into auction dynamics and latency systems, aligned with CoW DAO’s technical values.
+      </p>
+    </section>
+  
+    <section class="pitch">
+      <h2>Current Status</h2>
+      <p>
+        The solver is currently active in the <strong>CoW Protocol Shadow Competition</strong>, with a live full-stack deployment (driver, autopilot, database) and functional public endpoint.
+      </p>
+      <ul>
+        <li>📍 Hosted in Frankfurt (bare metal)</li>
+        <li>✅ JSON endpoint operational</li>
+        <li>⚠️ Solver is not yet submitting solutions (performance tuning ongoing)</li>
+      </ul>
+      <p>
+        The current focus is on latency tuning, auction response reliability, and submission eligibility — aiming to move toward visible auction activity in the coming weeks.
+      </p>
+    </section>
+  
+    <section class="pitch">
+      <h2>Timeline & Milestones</h2>
+  
+      <ul>
+        <li><strong>Q3 2025:</strong> Full infrastructure deployment and latency benchmarking (active)</li>
+        <li><strong>Q4 2025:</strong> Initial auction participation, route optimization, surplus tracking</li>
+        <li><strong>Q1 2026:</strong> Performance publishing, diagnostics tools, and selective open-sourcing</li>
+      </ul>
+    </section>
+  
+    <section class="pitch">
+      <h2>Grant Readiness</h2>
+      <p>
+        AzothSolver is a self-funded effort with a performance-first mindset. Once minimal auction participation is achieved and benchmarks are established, the project aims to apply for a CoW DAO grant focused on:
+      </p>
+      <ul>
+        <li>📊 Publishing open-source diagnostics and latency tooling</li>
+        <li>📈 Providing performance benchmarks for solver evaluation</li>
+        <li>🛠️ Contributing open-source utilities (non-core components)</li>
+      </ul>
+      <p>
+        The core solver logic will remain closed-source until competitive viability is established. The grant will help expand testing, tooling, and CoW-specific contributions.
+      </p>
+    </section>
+  
     <section class="contact">
       <h2>Contact</h2>
-      <p>Reach me at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
-      <p>Updates on <a href="https://x.com/AzothSolver" target="_blank" class="contact-link">X - @AzothSolver</a></p>
-      <p>Code & docs at <a href="https://github.com/AzothSolver" target="_blank" class="contact-link">GitHub - AzothSolver</a></p>
+      <p>Get in touch at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
+      <p>Follow updates on <a href="https://x.com/AzothSolver" target="_blank" class="contact-link">X - @AzothSolver</a></p>
+      <p>Explore code at <a href="https://github.com/AzothSolver" target="_blank" class="contact-link">GitHub - AzothSolver</a></p>
     </section>
   </main>
+  
   
 
 
