@@ -1,63 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="AzothSolver Roadmap: A visual guide to building a competitive CoW Protocol solver, covering auction anatomy, pathfinding, and advanced techniques." />
-      
-        <!-- Open Graph Tags (used by Twitter/X and other platforms) -->
-        <meta property="og:title" content="AzothSolver: CoW Protocol Solver Roadmap" />
-        <meta property="og:description" content="Visual guide to building a high-performance CoW Protocol solver, covering auctions, pathfinding, and advanced techniques." />
-        <meta property="og:image" content="https://azothsolver-web.vercel.app/assets/images/twitter-card.webp" />
-        <meta property="og:image:alt" content="AzothSolver Roadmap" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta property="og:type" content="article" />
-        <meta property="og:url" content="https://azothsolver-web.vercel.app/roadmap.html" />
-        <meta property="og:site_name" content="AzothSolver" />
-      
-        <!-- Twitter/X Card Tags -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@AzothSolver" />
-        <meta name="twitter:creator" content="@AzothSolver" />
-        <meta name="twitter:title" content="AzothSolver: CoW Protocol Solver Roadmap" />
-        <meta name="twitter:description" content="Visual guide to building a high-performance CoW Protocol solver, covering auctions, pathfinding, and advanced techniques." />
-        <meta name="twitter:image" content="https://azothsolver-web.vercel.app/assets/images/twitter-card.webp" />
-        <meta name="twitter:image:alt" content="AzothSolver Roadmap" />
-      
-        <title>AzothSolver: CoW Protocol Solver Roadmap</title>
-      
-        <!-- Favicon and PWA Icons -->
-        <link rel="icon" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon.ico" type="image/x-icon" />
-        <link rel="apple-touch-icon" sizes="180x180" href="https://azothsolver-web.vercel.app/assets/images/favicon/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-16x16.png" />
-        <link rel="manifest" href="https://azothsolver-web.vercel.app/assets/images/favicon/site.webmanifest" />
-      
-        <!-- Preload assets -->
-        <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/logo.webp" as="image" />
-        <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/cow-dao-logo.webp" as="image" />
-        <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/inter-700.woff2" as="font" type="font/woff2" crossorigin />
-        <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/space-grotesk-700.woff2" as="font" type="font/woff2" crossorigin />
-      
-        <!-- Link to external CSS file -->
-        <link rel="stylesheet" href="https://azothsolver-web.vercel.app/assets/css/styles.css" />
-      </head>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="AzothSolver Roadmap: A visual guide to building a competitive CoW Protocol solver, covering auction anatomy, pathfinding, and advanced techniques." />
+
+    <!-- Open Graph Tags (used by Twitter/X and other platforms) -->
+    <meta property="og:title" content="AzothSolver: CoW Protocol Solver Roadmap" />
+    <meta property="og:description"
+        content="Visual guide to building a high-performance CoW Protocol solver, covering auctions, pathfinding, and advanced techniques." />
+    <meta property="og:image" content="https://azothsolver-web.vercel.app/assets/images/twitter-card.webp" />
+    <meta property="og:image:alt" content="AzothSolver Roadmap" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://azothsolver-web.vercel.app/roadmap.html" />
+    <meta property="og:site_name" content="AzothSolver" />
+
+    <!-- Twitter/X Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@AzothSolver" />
+    <meta name="twitter:creator" content="@AzothSolver" />
+    <meta name="twitter:title" content="AzothSolver: CoW Protocol Solver Roadmap" />
+    <meta name="twitter:description"
+        content="Visual guide to building a high-performance CoW Protocol solver, covering auctions, pathfinding, and advanced techniques." />
+    <meta name="twitter:image" content="https://azothsolver-web.vercel.app/assets/images/twitter-card.webp" />
+    <meta name="twitter:image:alt" content="AzothSolver Roadmap" />
+
+    <title>AzothSolver: CoW Protocol Solver Roadmap</title>
+
+    <!-- Favicon and PWA Icons -->
+    <link rel="icon" href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" sizes="180x180"
+        href="https://azothsolver-web.vercel.app/assets/images/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32"
+        href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16"
+        href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="https://azothsolver-web.vercel.app/assets/images/favicon/site.webmanifest" />
+
+    <!-- Preload assets -->
+    <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/logo.webp" as="image" />
+    <link rel="preload" href="https://azothsolver-web.vercel.app/assets/images/cow-dao-logo.webp" as="image" />
+    <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/inter-400.woff2" as="font"
+        type="font/woff2" crossorigin />
+    <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/inter-700.woff2" as="font"
+        type="font/woff2" crossorigin />
+    <link rel="preload" href="https://azothsolver-web.vercel.app/assets/fonts/space-grotesk-700.woff2" as="font"
+        type="font/woff2" crossorigin />
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="https://azothsolver-web.vercel.app/assets/css/styles.css" />
+</head>
+
 <body id="top">
+    
     <nav class="top-nav">
         <a href="/" class="mini-logo-link">
           <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="mini-logo" width="36" height="36" />
         </a>
+    
         <div class="nav-buttons">
+          <a href="/" class="nav-button secondary" aria-label="Home">
+            home </a>
           <a href="/roadmap.html" class="nav-button tertiary">roadmap</a>
           <a href="/whitepaper.html" class="nav-button secondary">whitepaper</a>
         </div>
       </nav>
+
     <header>
         <a href="/index.html">
             <img src="/assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="120" height="120" />
-          </a>        <h1>From <span class="accent-text">Shadow</span> to <span class="highlight">Settlement</span></h1>
+        </a>
+        <h1>From <span class="accent-text">Shadow</span> to <span class="highlight">Settlement</span></h1>
         <p class="tagline">A Visual Roadmap to Building a Competitive CoW Protocol Solver</p>
         <div class="pixel-bar">
             <div class="pixel" style="--n:1"></div>
@@ -73,17 +90,25 @@
         </div>
     </header>
     <main>
-        
+
         <section class="content-section">
-            <p>Becoming a CoW Protocol solver is more than running infrastructure. It's an algorithmic arms race where the prize is user surplus. The core of this challenge is the <span class="highlight">solver engine</span>, an intelligent system that must navigate the complexities of DeFi to find the most optimal settlement for a batch of user trades.</p>
+            <p>Becoming a CoW Protocol solver is more than running infrastructure. It's an algorithmic arms race where
+                the prize is user surplus. The core of this challenge is the <span class="highlight">solver
+                    engine</span>, an intelligent system that must navigate the complexities of DeFi to find the most
+                optimal settlement for a batch of user trades.</p>
         </section>
         <section class="content-section">
             <h2>AzothSolver’s Approach</h2>
-            <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub-0.5ms latency</span> using Frankfurt-based bare metal servers and <span class="highlight">Rust-based algorithms</span>. Our goal is to compete in the CoW Protocol shadow competition in Q4 2025. See the <a href="/whitepaper.html">whitepaper</a> for details.</p>
+            <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub-0.5ms latency</span> using
+                Frankfurt-based bare metal servers and <span class="highlight">Rust-based algorithms</span>. Our goal is
+                to compete in the CoW Protocol shadow competition in Q4 2025. See the <a
+                    href="/whitepaper.html">whitepaper</a> for details.</p>
         </section>
         <section class="content-section">
             <h2>Anatomy of an Auction</h2>
-            <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its structure is the first critical step.</p>
+            <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span
+                    class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its
+                structure is the first critical step.</p>
             <div class="flow-diagram">
                 <div class="flow-item">
                     <div class="flow-icon" aria-label="CoW Protocol Driver icon">📦</div>
@@ -108,11 +133,14 @@
                     <p>Finds optimal solution</p>
                 </div>
             </div>
-            <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than data validation. The most critical data points are the user <span class="highlight">orders</span> and the available on-chain <span class="highlight">AMMs</span>.</p>
+            <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than
+                data validation. The most critical data points are the user <span class="highlight">orders</span> and
+                the available on-chain <span class="highlight">AMMs</span>.</p>
         </section>
         <section class="content-section">
             <h2>Foundational Strategy: Optimal Pathfinding</h2>
-            <p>Before finding CoWs, a solver must master routing trades across on-chain liquidity. This is modeled as a dynamic graph problem where the "best" path depends on trade size.</p>
+            <p>Before finding CoWs, a solver must master routing trades across on-chain liquidity. This is modeled as a
+                dynamic graph problem where the "best" path depends on trade size.</p>
             <div class="specs-table">
                 <h3>Choosing the Right Algorithm</h3>
                 <table>
@@ -139,28 +167,33 @@
                         </tr>
                         <tr>
                             <td><strong>Max-Flow Min-Cost</strong></td>
-                            <td>The canonical approach for splitting large orders across multiple pools to minimize slippage.</td>
+                            <td>The canonical approach for splitting large orders across multiple pools to minimize
+                                slippage.</td>
                             <td>✓</td>
                             <td>✗</td>
                         </tr>
                         <tr>
                             <td><strong>Numerical Optimization</strong></td>
-                            <td>A practical way to solve the complex, non-linear problem of maximizing output across multiple AMM curves.</td>
+                            <td>A practical way to solve the complex, non-linear problem of maximizing output across
+                                multiple AMM curves.</td>
                             <td>✓</td>
                             <td>✗</td>
                         </tr>
                     </tbody>
                 </table>
-                <p class="footnote">A competitive solver combines multiple algorithms: one for arbitrage detection and another for optimal order splitting.</p>
+                <p class="footnote">A competitive solver combines multiple algorithms: one for arbitrage detection and
+                    another for optimal order splitting.</p>
             </div>
         </section>
         <section class="content-section">
             <h2>The Core Edge: Mastering Coincidence of Wants (CoWs)</h2>
-            <p>The true power of CoW Protocol is settling trades peer-to-peer, avoiding AMM fees and slippage. A solver's ability to find these "CoWs" is its primary source of alpha.</p>
+            <p>The true power of CoW Protocol is settling trades peer-to-peer, avoiding AMM fees and slippage. A
+                solver's ability to find these "CoWs" is its primary source of alpha.</p>
             <div class="content-list card-grid">
                 <div class="card-item">
                     <h3>Simple CoW</h3>
-                    <p>A direct peer-to-peer trade. Alice wants to sell ETH for USDC, Bob wants to sell USDC for ETH. The solver matches them directly.</p>
+                    <p>A direct peer-to-peer trade. Alice wants to sell ETH for USDC, Bob wants to sell USDC for ETH.
+                        The solver matches them directly.</p>
                     <div class="cow-participants">
                         <div class="participant">
                             <div class="participant-icon" aria-label="Alice participant icon">👩‍🦱</div>
@@ -177,7 +210,8 @@
                 </div>
                 <div class="card-item">
                     <h3>Ring CoW</h3>
-                    <p>A multi-party trade forming a closed loop of liquidity. This is the most valuable and complex CoW to find.</p>
+                    <p>A multi-party trade forming a closed loop of liquidity. This is the most valuable and complex CoW
+                        to find.</p>
                     <div class="cow-participants">
                         <div class="participant">
                             <div class="participant-icon" aria-label="Alice participant icon">👩‍🦱</div>
@@ -202,7 +236,8 @@
         </section>
         <section class="content-section">
             <h2>The Elite Solver's Toolkit</h2>
-            <p>Top solvers gain their edge by optimizing at the margins. These advanced techniques separate the winners from the rest of the pack.</p>
+            <p>Top solvers gain their edge by optimizing at the margins. These advanced techniques separate the winners
+                from the rest of the pack.</p>
             <div class="content-list card-grid">
                 <div class="card-item">
                     <div class="technique-icon" aria-label="Precision Gas Estimation icon">⛽️</div>
@@ -212,23 +247,28 @@
                 <div class="card-item">
                     <div class="technique-icon" aria-label="Superior Liquidity icon">🌊</div>
                     <h3>Superior Liquidity</h3>
-                    <p>Integrating DEX aggregators and private market makers provides better pricing than baseline AMMs.</p>
+                    <p>Integrating DEX aggregators and private market makers provides better pricing than baseline AMMs.
+                    </p>
                 </div>
                 <div class="card-item">
                     <div class="technique-icon" aria-label="Benign MEV Capture icon">🤖</div>
                     <h3>Benign MEV Capture</h3>
-                    <p>Using arbitrage profits to improve user prices, not for personal gain, increases the solution score.</p>
+                    <p>Using arbitrage profits to improve user prices, not for personal gain, increases the solution
+                        score.</p>
                 </div>
                 <div class="card-item">
                     <div class="technique-icon" aria-label="Flash Loans icon">⚡️</div>
                     <h3>Flash Loans</h3>
-                    <p>Unlocking complex settlements and arbitrage with virtual capital, increasing capital efficiency.</p>
+                    <p>Unlocking complex settlements and arbitrage with virtual capital, increasing capital efficiency.
+                    </p>
                 </div>
             </div>
         </section>
         <section class="content-section">
             <h2>Benchmarking for Victory</h2>
-            <p>A solver is a dynamic trading agent. Success requires constant monitoring, analysis, and iteration based on key performance indicators (KPIs) from the risk-free Shadow Competition. <em>Note: KPI values below are illustrative for demonstration.</em></p>
+            <p>A solver is a dynamic trading agent. Success requires constant monitoring, analysis, and iteration based
+                on key performance indicators (KPIs) from the risk-free Shadow Competition. <em>Note: KPI values below
+                    are illustrative for demonstration.</em></p>
             <div class="content-list card-grid">
                 <div class="card-item">
                     <h3>Key Performance Indicators</h3>
@@ -297,7 +337,8 @@
         </section>
         <section class="content-section">
             <h2>AzothSolver Development Timeline</h2>
-            <p>AzothSolver’s implementation of this roadmap is structured in phases to achieve competitive performance in the CoW Protocol ecosystem.</p>
+            <p>AzothSolver’s implementation of this roadmap is structured in phases to achieve competitive performance
+                in the CoW Protocol ecosystem.</p>
             <div class="content-list card-grid">
                 <div class="card-item">
                     <h4>Q3 2025: Infrastructure Setup</h4>
@@ -317,73 +358,74 @@
                 </div>
             </div>
         </section>
-       
-    
 
-    <section class="contact">
-      <h2>Contact Us</h2>
-      <p>Reach out at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
-      <p>Follow us on <a href="https://x.com/AzothSolver" class="contact-link" target="_blank"
-          rel="noopener noreferrer">X - @AzothSolver</a></p>
-      <p>Check out our code on <a href="https://github.com/AzothSolver" class="contact-link" target="_blank"
-          rel="noopener noreferrer">GitHub - @AzothSolver</a></p>
-    </section>
+
+
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <p>Reach out at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
+            <p>Follow us on <a href="https://x.com/AzothSolver" class="contact-link" target="_blank"
+                    rel="noopener noreferrer">X - @AzothSolver</a></p>
+            <p>Check out our code on <a href="https://github.com/AzothSolver" class="contact-link" target="_blank"
+                    rel="noopener noreferrer">GitHub - @AzothSolver</a></p>
+        </section>
     </main>
-    
+
     <footer>
-      <div class="pixel-bar">
-        <div class="pixel" style="--n:1"></div>
-        <div class="pixel" style="--n:2"></div>
-        <div class="pixel" style="--n:3"></div>
-        <div class="pixel" style="--n:4"></div>
-        <div class="pixel" style="--n:5"></div>
-        <div class="pixel" style="--n:6"></div>
-        <div class="pixel" style="--n:7"></div>
-        <div class="pixel" style="--n:8"></div>
-        <div class="pixel" style="--n:9"></div>
-        <div class="pixel" style="--n:10"></div>
-      </div>
-      <p>This infographic visualizes the technical roadmap for building a competitive CoW Protocol solver.</p>
-      <p>© 2025 AzothSolver. All rights reserved.</p>
+        <div class="pixel-bar">
+            <div class="pixel" style="--n:1"></div>
+            <div class="pixel" style="--n:2"></div>
+            <div class="pixel" style="--n:3"></div>
+            <div class="pixel" style="--n:4"></div>
+            <div class="pixel" style="--n:5"></div>
+            <div class="pixel" style="--n:6"></div>
+            <div class="pixel" style="--n:7"></div>
+            <div class="pixel" style="--n:8"></div>
+            <div class="pixel" style="--n:9"></div>
+            <div class="pixel" style="--n:10"></div>
+        </div>
+        <p>This infographic visualizes the technical roadmap for building a competitive CoW Protocol solver.</p>
+        <p>© 2025 AzothSolver. All rights reserved.</p>
     </footer>
-    
+
     <button id="back-to-top" class="back-to-top" aria-label="Back to Top">↑</button>
 
-      
+
 
     <script>
         const miniLogo = document.querySelector('.mini-logo');
         const header = document.querySelector('header');
-      
+
         const observer = new IntersectionObserver(
-          ([entry]) => {
-            if (!entry.isIntersecting) {
-              miniLogo.classList.add('visible');
-            } else {
-              miniLogo.classList.remove('visible');
-            }
-          },
-          { rootMargin: "-80px 0px 0px 0px" } // triggers a bit earlier
+            ([entry]) => {
+                if (!entry.isIntersecting) {
+                    miniLogo.classList.add('visible');
+                } else {
+                    miniLogo.classList.remove('visible');
+                }
+            },
+            { rootMargin: "-80px 0px 0px 0px" } // triggers a bit earlier
         );
-      
+
         observer.observe(header);
-      </script>
-      
+    </script>
+
     <script>
         // Show/hide back-to-top button based on scroll position
         window.addEventListener('scroll', () => {
-          const button = document.getElementById('back-to-top');
-          if (window.scrollY > 300) { // Show button after scrolling 300px
-            button.classList.add('visible');
-          } else {
-            button.classList.remove('visible');
-          }
+            const button = document.getElementById('back-to-top');
+            if (window.scrollY > 300) { // Show button after scrolling 300px
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
         });
-      
+
         // Smooth scroll to top when button is clicked
         document.getElementById('back-to-top').addEventListener('click', () => {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-      </script>
+    </script>
 </body>
+
 </html>
