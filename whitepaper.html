@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="AzothSolver Whitepaper: Technical implementation details for our CoW Protocol solver infrastructure." />
+  <meta name="description"
+    content="AzothSolver Whitepaper: Technical implementation details for our CoW Protocol solver infrastructure." />
   <meta property="og:title" content="AzothSolver Whitepaper">
-  <meta property="og:description" content="Technical implementation details for our CoW Protocol solver infrastructure.">
+  <meta property="og:description"
+    content="Technical implementation details for our CoW Protocol solver infrastructure.">
   <meta property="og:image" content="/assets/images/logo.webp">
   <title>AzothSolver Whitepaper</title>
 
@@ -20,13 +23,16 @@
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
   <nav class="top-nav">
     <a href="/" class="mini-logo-link">
-      <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="mini-logo" width="40" height="40" />
+      <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="mini-logo" width="36" height="36" />
     </a>
-    <a href="/whitepaper.html" class="nav-button secondary">W-Paper</a>
-    <a href="/roadmap.html" class="nav-button tertiary">R-Map</a>
+    <div class="nav-buttons">
+      <a href="/roadmap.html" class="nav-button tertiary">roadmap</a>
+      <a href="/whitepaper.html" class="nav-button secondary">whitepaper</a>
+    </div>
   </nav>
   <header>
     <a href="/index.html">
@@ -50,66 +56,86 @@
 
   <main>
     <div class="page-nav">
-      <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Download PDF</a>
+      <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer"
+        class="cta-button">Download PDF</a>
     </div>
 
     <section class="content-section">
       <h2>Abstract</h2>
-      <p>AzothSolver is a performance-focused solver implementation for CoW Protocol, built with Frankfurt-based bare metal infrastructure and optimized for sub-millisecond execution latency. This document outlines our technical architecture, development approach, and transparent progress toward CoW Protocol's shadow competition entry in Q4 2025.</p>
+      <p>AzothSolver is a performance-focused solver implementation for CoW Protocol, built with Frankfurt-based bare
+        metal infrastructure and optimized for sub-millisecond execution latency. This document outlines our technical
+        architecture, development approach, and transparent progress toward CoW Protocol's shadow competition entry in
+        Q4 2025.</p>
     </section>
 
     <section class="content-section">
       <h2>1. Technical Challenge</h2>
-      <p>CoW Protocol's batch auction system creates a competitive environment where solver performance directly impacts settlement efficiency and user outcomes. Success requires optimizing these key areas:</p>
-      
+      <p>CoW Protocol's batch auction system creates a competitive environment where solver performance directly impacts
+        settlement efficiency and user outcomes. Success requires optimizing these key areas:</p>
+
       <div class="content-list">
         <ul>
-          <li><span class="highlight">Infrastructure Latency:</span> Network round-trip time to CoW Protocol infrastructure significantly impacts bid submission timing and settlement opportunities.</li>
-          <li><span class="highlight">Routing Efficiency:</span> Advanced pathfinding algorithms that can identify optimal settlement paths within the auction's time constraints.</li>
-          <li><span class="highlight">System Reliability:</span> Consistent performance under varying network conditions and order volumes.</li>
+          <li><span class="highlight">Infrastructure Latency:</span> Network round-trip time to CoW Protocol
+            infrastructure significantly impacts bid submission timing and settlement opportunities.</li>
+          <li><span class="highlight">Routing Efficiency:</span> Advanced pathfinding algorithms that can identify
+            optimal settlement paths within the auction's time constraints.</li>
+          <li><span class="highlight">System Reliability:</span> Consistent performance under varying network conditions
+            and order volumes.</li>
         </ul>
       </div>
     </section>
 
     <section class="content-section">
       <h2>2. Technical Implementation</h2>
-      
+
       <h3>Infrastructure Architecture</h3>
       <div class="content-list">
         <ul>
-          <li><span class="highlight">Location:</span> Frankfurt-based bare metal server optimized for <0.5ms latency to CoW Protocol endpoints.</li>
-          <li><span class="highlight">Operating System:</span> Ubuntu 24.04 with real-time kernel patches for predictable scheduling.</li>
-          <li><span class="highlight">Networking:</span> DPDK-based packet processing with kernel bypass for reduced latency variance.</li>
-          <li><span class="highlight">Node Setup:</span> Local node infrastructure for direct blockchain state access and transaction broadcasting.</li>
+          <li><span class="highlight">Location:</span> Frankfurt-based bare metal server optimized for <0.5ms latency to
+              CoW Protocol endpoints.</li>
+          <li><span class="highlight">Operating System:</span> Ubuntu 24.04 with real-time kernel patches for
+            predictable scheduling.</li>
+          <li><span class="highlight">Networking:</span> DPDK-based packet processing with kernel bypass for reduced
+            latency variance.</li>
+          <li><span class="highlight">Node Setup:</span> Local node infrastructure for direct blockchain state access
+            and transaction broadcasting.</li>
         </ul>
       </div>
 
       <h3>Software Stack</h3>
       <div class="content-list">
         <ul>
-          <li><span class="highlight">Core Language:</span> Rust for performance-critical components with memory safety guarantees.</li>
-          <li><span class="highlight">Pathfinding:</span> Custom graph algorithms optimized for CoW Protocol's batch auction constraints.</li>
-          <li><span class="highlight">Monitoring:</span> Comprehensive telemetry for latency analysis and performance optimization.</li>
-          <li><span class="highlight">Testing:</span> Extensive simulation framework for algorithm validation before deployment.</li>
+          <li><span class="highlight">Core Language:</span> Rust for performance-critical components with memory safety
+            guarantees.</li>
+          <li><span class="highlight">Pathfinding:</span> Custom graph algorithms optimized for CoW Protocol's batch
+            auction constraints.</li>
+          <li><span class="highlight">Monitoring:</span> Comprehensive telemetry for latency analysis and performance
+            optimization.</li>
+          <li><span class="highlight">Testing:</span> Extensive simulation framework for algorithm validation before
+            deployment.</li>
         </ul>
       </div>
     </section>
 
     <section class="content-section">
       <h2>3. Development Team</h2>
-      <p>AzothSolver is being developed by an experienced infrastructure engineer with a background in high-performance systems:</p>
-      
+      <p>AzothSolver is being developed by an experienced infrastructure engineer with a background in high-performance
+        systems:</p>
+
       <div class="content-list">
         <ul>
-          <li><span class="highlight">Lead Developer:</span> Self-taught engineer with previous experience building and operating large-scale crypto mining infrastructure, cross-chain messaging protocols, and Web3 educational curricula for European institutions.</li>
-          <li><span class="highlight">Approach:</span> Solo development with focus on deep technical understanding and iterative improvement based on real performance data.</li>
+          <li><span class="highlight">Lead Developer:</span> Self-taught engineer with previous experience building and
+            operating large-scale crypto mining infrastructure, cross-chain messaging protocols, and Web3 educational
+            curricula for European institutions.</li>
+          <li><span class="highlight">Approach:</span> Solo development with focus on deep technical understanding and
+            iterative improvement based on real performance data.</li>
         </ul>
       </div>
     </section>
 
     <section class="content-section">
       <h2>4. System Specifications</h2>
-      
+
       <div class="specs-table">
         <table>
           <thead>
@@ -146,7 +172,7 @@
 
     <section class="content-section">
       <h2>5. Development Roadmap</h2>
-      
+
       <div class="roadmap-phase">
         <h4>Phase 1: Infrastructure Setup (Q3 2025)</h4>
         <ul>
@@ -167,7 +193,8 @@
           <li>Begin performance data collection and analysis</li>
         </ul>
         <div class="success-metric">
-          <strong>Success Metric:</strong> Successful participation in shadow competition with measurable performance data
+          <strong>Success Metric:</strong> Successful participation in shadow competition with measurable performance
+          data
         </div>
       </div>
 
@@ -208,46 +235,51 @@
     </section>
 
     <section class="content-section">
-      <h2>Contact & Updates</h2>
-      
-      <div class="contact-section">
-        <p>
-          📩 <a href="mailto:azothsolver@gmail.com">azothsolver@gmail.com</a><br>
-          🌐 <a href="https://azothsolver-web.vercel.app" target="_blank" rel="noopener noreferrer">https://azothsolver-web.vercel.app</a><br>
-          🐦 <a href="https://x.com/AzothSolver" target="_blank" rel="noopener noreferrer">Follow development updates on X - @AzothSolver</a>
-        </p>
-        
-        <p class="footnote">Development progress and performance metrics will be shared transparently as we progress through the shadow competition and beyond.</p>
-      </div>
+
+      <p class="footnote">Development progress and performance metrics will be shared transparently as we progress
+        through the shadow competition and beyond.</p>
+
     </section>
 
     <div class="page-nav">
-      <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer" class="cta-button">Download PDF</a>
+      <a href="/assets/documents/AzothSolver-Whitepaper.pdf" target="_blank" rel="noopener noreferrer"
+        class="cta-button">Download PDF</a>
     </div>
+
+
+
+
+    <section class="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out at <a href="mailto:azothsolver@gmail.com" class="contact-link">azothsolver@gmail.com</a></p>
+      <p>Follow us on <a href="https://x.com/AzothSolver" class="contact-link" target="_blank"
+          rel="noopener noreferrer">X - @AzothSolver</a></p>
+    </section>
   </main>
 
-  <div class="pixel-bar">
-    <div class="pixel" style="--n:1"></div>
-    <div class="pixel" style="--n:2"></div>
-    <div class="pixel" style="--n:3"></div>
-    <div class="pixel" style="--n:4"></div>
-    <div class="pixel" style="--n:5"></div>
-    <div class="pixel" style="--n:6"></div>
-    <div class="pixel" style="--n:7"></div>
-    <div class="pixel" style="--n:8"></div>
-    <div class="pixel" style="--n:9"></div>
-    <div class="pixel" style="--n:10"></div>
-  </div>
-
   <footer>
+    <div class="pixel-bar">
+      <div class="pixel" style="--n:1"></div>
+      <div class="pixel" style="--n:2"></div>
+      <div class="pixel" style="--n:3"></div>
+      <div class="pixel" style="--n:4"></div>
+      <div class="pixel" style="--n:5"></div>
+      <div class="pixel" style="--n:6"></div>
+      <div class="pixel" style="--n:7"></div>
+      <div class="pixel" style="--n:8"></div>
+      <div class="pixel" style="--n:9"></div>
+      <div class="pixel" style="--n:10"></div>
+    </div>
     <p>© 2025 AzothSolver. All rights reserved.</p>
   </footer>
+
   <button id="back-to-top" class="back-to-top" aria-label="Back to Top">↑</button>
+
 
   <script>
     const miniLogo = document.querySelector('.mini-logo');
     const header = document.querySelector('header');
-  
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) {
@@ -258,7 +290,7 @@
       },
       { rootMargin: "-80px 0px 0px 0px" } // triggers a bit earlier
     );
-  
+
     observer.observe(header);
   </script>
 
@@ -272,11 +304,12 @@
         button.classList.remove('visible');
       }
     });
-  
+
     // Smooth scroll to top when button is clicked
     document.getElementById('back-to-top').addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   </script>
 </body>
+
 </html>
