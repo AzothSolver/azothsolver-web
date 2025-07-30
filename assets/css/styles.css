@@ -857,3 +857,103 @@ header {
     font-size: 1rem;
   }
 }
+
+
+/* === READABILITY & ALIGNMENT ENHANCEMENTS === */
+
+/* Set the default text alignment for the main content area to left. 
+   This is the most important change for readability. */
+   main {
+    text-align: left;
+  }
+  
+  /* Keep your main H1 and H2 headings centered to maintain their visual impact. */
+  h1, h2 {
+    text-align: center;
+  }
+  
+  /* Ensure all paragraphs, list items, and subheadings are left-aligned. 
+     This creates a clean, readable flow for your detailed content. */
+  .pitch p,
+  .content-section p,
+  .card-item p,
+  .dev-tracker p,
+  .footnote,
+  .content-list li,
+  .roadmap-phase li,
+  .development-cycle p {
+    text-align: left;
+  }
+  
+  /* Center the headings within cards for a balanced look. */
+  .card-item h3,
+  .card-item h4 {
+      text-align: center;
+  }
+  
+  /* The contact section text should also be left-aligned for consistency. */
+  .contact p {
+    text-align: left;
+  }
+  
+  /* Re-center specific elements where it works best for the design, like the header and footer. */
+  header,
+  footer,
+  .tagline,
+  .contact h2,
+  .partners h2,
+  .dev-tracker h2,
+  .page-nav {
+    text-align: center;
+  }
+  
+  /* Keep text centered where it's part of a visual diagram. */
+  .cow-participants .participant p,
+  .specs-table .footnote {
+    text-align: center;
+  }
+
+  /* === ROADMAP CREDIBILITY ENHANCEMENTS === */
+
+/* Style for new text-based "icons" in the Elite Solver's Toolkit */
+.technique-label {
+  display: inline-block;
+  font-family: 'Space Grotesk', monospace;
+  background-color: rgba(10, 9, 23, 0.6); /* Dark background */
+  color: var(--accent-secondary);
+  border: 1px solid rgba(138, 66, 209, 0.4); /* Accent border */
+  border-radius: 8px;
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.card-item:hover .technique-label {
+  color: white;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 15px var(--accent-primary);
+}
+
+
+/* Style for new text-based labels in flow diagrams */
+.flow-label {
+  font-family: 'Space Grotesk', monospace;
+  border: 1px solid var(--text-secondary);
+  background-color: var(--background-light);
+  color: var(--text-primary);
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+/* Style for anonymized participant labels in CoW diagrams */
+.participant-label {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
