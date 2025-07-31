@@ -453,11 +453,13 @@ main {
   background-color: #1e1e1e;
   padding: 1rem;
   border-radius: 8px;
-  width: fit-content;
+  width: 100%;                      /* force it to stay inside parent */
+  overflow-x: auto;                 /* allow horizontal scroll if needed */
   word-break: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
 }
+
 
 .flow-item {
   text-align: center;
