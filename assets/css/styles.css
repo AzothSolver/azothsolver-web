@@ -692,6 +692,9 @@ footer,
   }
   
   header { padding: 30px 10px; }
+  header {
+    padding-top: 130px; /* increase from 30px to at least 130px */
+  }
   main { padding: 0 15px; }
   
   .cta-button,
@@ -750,4 +753,5 @@ footer,
     height: 30px;
     width: 30px;
   }
+  
 }
