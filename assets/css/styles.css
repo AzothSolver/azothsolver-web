@@ -685,47 +685,55 @@ footer,
   h1 { font-size: 2.2rem; }
   h2 { font-size: 2rem; }
   h3 { font-size: 1.4rem; }
-  
+
   .pitch p,
   .content-section p,
   .card-item p,
   .dev-tracker p {
     font-size: 1rem;
   }
-  
-  header { padding: 30px 10px; }
+
+  /* ✅ Fix: give room for logo + avoid nav overlap */
   header {
-    padding-top: 130px; /* increase from 30px to at least 130px */
+    padding: 130px 10px 60px;
   }
+
   main { padding: 0 15px; }
-  
+
   .cta-button,
   .nav-button {
     font-size: 1rem;
     padding: 12px 24px;
   }
-  
+
   .nav-button {
     font-size: 0.9rem;
     padding: 6px 9px;
   }
-  
+
   .page-nav { flex-direction: column; }
   th, td { padding: 10px; }
-  
+
   .tracker-grid,
   .card-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .tracker-item { padding: 12px 14px; }
   .partner-logos img { max-width: 80px; }
-  
+
   .flow-diagram { flex-direction: column; }
   .flow-arrow { transform: rotate(90deg); }
-  .flow-box { padding: 10px; font-size: 0.85rem; }
+  .flow-box {
+    padding: 10px;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .specs-table { overflow-x: auto; }
-  
+
   .back-to-top {
     width: 40px;
     height: 40px;
