@@ -5,9 +5,12 @@
   box-sizing: border-box;
 }
 
+
+
+
 body {
   margin: 0;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: var(--font-body);
   background-color: var(--background-dark);
   background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
   color: var(--text-primary);
@@ -25,39 +28,17 @@ body {
   --accent-secondary: #42C2D1;
   --text-primary: #EAEAF2;
   --text-secondary: #A0A0B0;
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-heading: 'Trebuchet MS', -apple-system, BlinkMacSystemFont, 'Arial Black', Arial, sans-serif;
 }
 
-/* === FONTS === */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/inter-400.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: AZoth;
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/inter-700.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/space-grotesk-700.woff2') format('woff2');
-  font-display: swap;
-}
 
 /* === TYPOGRAPHY === */
 h1,
 h2,
 h3,
 h4 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: var(--font-heading);
   text-align: center;
   color: white;
 }
