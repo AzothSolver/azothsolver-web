@@ -88,7 +88,7 @@
         </section>
         <section class="content-section">
             <h2>AzothSolver’s Approach</h2>
-            <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub-0.5ms latency</span> using
+            <p>AzothSolver applies this roadmap with a focus on <span class="highlight">sub 5ms latency</span> using
                 Frankfurt-based bare metal servers and <span class="highlight">Rust-based algorithms</span>. Our goal is
                 to compete in the CoW Protocol shadow competition in Q4 2025. See the <a
                     href="/whitepaper.html">whitepaper</a> for details.</p>
@@ -98,28 +98,11 @@
             <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span
                     class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its
                 structure is the first critical step.</p>
-            <div class="flow-diagram">
-                <div class="flow-item">
-                    <div class="flow-label">[Protocol Driver]</div>
-                    <p style="margin-top: 15px;">Pre-processes data</p>
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-box">
-                    <strong class="accent-text">POST /solve</strong><br><br>
-                    {<br>
-                    &nbsp;&nbsp;"id": "0x123",<br>
-                    &nbsp;&nbsp;"gasPrice": "100",<br>
-                    &nbsp;&nbsp;<span class="highlight">"orders": { ... },</span><br>
-                    &nbsp;&nbsp;"tokens": { ... },<br>
-                    &nbsp;&nbsp;"amms": { ... }<br>
-                    }
-                </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-item">
-                    <div class="flow-label">[Solver Engine]</div>
-                    <p style="margin-top: 15px;">Finds optimal solution</p>
-                </div>
-            </div>
+                <div class="frosted-box" style="text-align: center;">
+                    <img src="assets/images/anatomy-auction.webp" alt="Anatomy of an Auction diagram"
+                         style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(138,66,209,0.3);" />
+                    <p class="footnote">Anatomy of a CoW Protocol auction round — from request to solver execution.</p>
+                  </div>
             <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than
                 data validation. The most critical data points are the user <span class="highlight">orders</span> and
                 the available on-chain <span class="highlight">AMMs</span>.</p>
@@ -217,7 +200,7 @@
             </div>
         </section>
         <section class="content-section">
-            <h2>The Elite Solver's Toolkit</h2>
+            <h2>The Solver's Toolkit</h2>
             <p>Top solvers gain their edge by optimizing at the margins. These advanced techniques separate the winners
                 from the rest of the pack.</p>
             <div class="content-list card-grid">
@@ -318,7 +301,7 @@
             </div>
         </section>
         <section class="content-section">
-            <h2>AzothSolver Development Timeline</h2>
+            <h2>Development Timeline</h2>
             <p>AzothSolver’s implementation of this roadmap is structured in phases to achieve competitive performance
                 in the CoW Protocol ecosystem.</p>
             <div class="content-list card-grid">
