@@ -38,30 +38,30 @@
         href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-16x16.png" />
     <link rel="manifest" href="https://azothsolver-web.vercel.app/assets/images/favicon/site.webmanifest" />
 
-    
+
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body id="top">
-    
+
     <nav class="top-nav">
         <a href="/" class="mini-logo-link">
-          <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="mini-logo" width="36" height="36" />
+            <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="mini-logo" width="36" height="36" />
         </a>
-    
+
         <div class="nav-buttons">
-          <a href="/" class="nav-button secondary" aria-label="Home">
-            home </a>
-          <a href="/roadmap.html" class="nav-button tertiary">roadmap</a>
-          <a href="/whitepaper.html" class="nav-button secondary">wp</a>
-          <a href="/about.html" class="nav-button tertiary">about</a>
-    
+            <a href="/" class="nav-button secondary" aria-label="Home">
+                home </a>
+            <a href="/roadmap.html" class="nav-button tertiary">roadmap</a>
+            <a href="/whitepaper.html" class="nav-button secondary">wp</a>
+            <a href="/about.html" class="nav-button tertiary">about</a>
+
         </div>
-      </nav>
+    </nav>
 
     <header>
         <a href="/index.html">
-            <img src="/assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="120" height="120" />
+            <img src="assets/images/logo.webp" alt="AzothSolver Logo" class="logo" width="120" height="120" />
         </a>
         <h1>From <span class="accent-text">Shadow</span> to <span class="highlight">Settlement</span></h1>
         <p class="tagline">A Visual Roadmap to Building a Competitive CoW Protocol Solver</p>
@@ -98,11 +98,11 @@
             <p>Periodically, based on auction cadence, the protocol sends a JSON payload to the solver's <span
                     class="accent-text">/solve</span> endpoint. This is the entire problem space. Understanding its
                 structure is the first critical step.</p>
-                <div class="frosted-box" style="text-align: center;">
-                    <img src="assets/images/anatomy-auction.webp" alt="Anatomy of an Auction diagram"
-                         style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(138,66,209,0.3);" />
-                    <p class="footnote">Anatomy of a CoW Protocol auction round — from request to solver execution.</p>
-                  </div>
+            <div class="frosted-box" style="text-align: center;">
+                <img src="assets/images/anatomy-auction.webp" alt="Anatomy of an Auction diagram"
+                    style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid rgba(138,66,209,0.3);" />
+                <p class="footnote">Anatomy of a CoW Protocol auction round — from request to solver execution.</p>
+            </div>
             <p>The solver receives a clean, actionable problem set, allowing it to focus on optimization rather than
                 data validation. The most critical data points are the user <span class="highlight">orders</span> and
                 the available on-chain <span class="highlight">AMMs</span>.</p>
