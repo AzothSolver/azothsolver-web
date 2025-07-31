@@ -7,7 +7,7 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif; /* Replaced Inter with Arial */
   background-color: var(--background-dark);
   background-image: radial-gradient(ellipse at top, #2A2640 0%, var(--background-dark) 70%);
   color: var(--text-primary);
@@ -27,37 +27,12 @@ body {
   --text-secondary: #A0A0B0;
 }
 
-/* === FONTS === */
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/inter-400.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: AZoth;
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/inter-700.woff2') format('woff2');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/space-grotesk-700.woff2') format('woff2');
-  font-display: swap;
-}
-
 /* === TYPOGRAPHY === */
 h1,
 h2,
 h3,
 h4 {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Replaced Space Grotesk with Georgia */
   text-align: center;
   color: white;
 }
@@ -195,7 +170,7 @@ main {
 .nav-button {
   display: inline-block;
   padding: 15px 35px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Replaced Space Grotesk with Georgia */
   font-size: 1.1rem;
   font-weight: 700;
   color: white;
@@ -449,7 +424,7 @@ main {
 }
 
 .flow-box {
-  font-family: monospace;
+  font-family: monospace; /* Kept monospace for code-like elements */
   background-color: #1e1e1e;
   padding: 1rem;
   border-radius: 8px;
@@ -492,7 +467,7 @@ td {
 }
 
 th {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Replaced Space Grotesk with Georgia */
   font-size: 1.1rem;
   color: var(--text-primary);
   background-color: rgba(138, 66, 209, 0.1);
@@ -568,7 +543,7 @@ footer {
   right: 20px;
   width: 50px;
   height: 50px;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Replaced Space Grotesk with Georgia */
   font-size: 1.5rem;
   font-weight: 700;
   color: white;
@@ -606,7 +581,7 @@ footer {
 /* === SPECIAL ELEMENTS === */
 .technique-label {
   display: inline-block;
-  font-family: 'Space Grotesk', monospace;
+  font-family: monospace; /* Kept monospace for code-like elements */
   background-color: rgba(10, 9, 23, 0.6);
   color: var(--accent-secondary);
   border: 1px solid rgba(138, 66, 209, 0.4);
@@ -627,7 +602,7 @@ footer {
 }
 
 .flow-label {
-  font-family: 'Space Grotesk', monospace;
+  font-family: monospace; /* Kept monospace for code-like elements */
   border: 1px solid var(--text-secondary);
   background-color: var(--background-light);
   color: var(--text-primary);
@@ -636,7 +611,7 @@ footer {
 }
 
 .participant-label {
-  font-family: 'Space Grotesk', monospace;
+  font-family: Georgia, 'Times New Roman', Times, serif; /* Replaced Space Grotesk with Georgia */
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
