@@ -169,9 +169,9 @@ main {
 .cta-button,
 .nav-button {
   display: inline-block;
-  padding: 15px 35px;
-  font-family: Georgia, 'Times New Roman', Times, serif; /* Replaced Space Grotesk with Georgia */
-  font-size: 1.1rem;
+  padding: 4px 6px; /* Reduced from 6px 9px */
+  font-size: 0.85rem; /* Reduced from 0.9rem */
+  font-family: Georgia, 'Times New Roman', Times, serif;
   font-weight: 700;
   color: white;
   background-color: var(--accent-primary);
@@ -185,7 +185,7 @@ main {
 }
 
 .nav-button {
-  padding: 6px 9px;
+  padding: 4px 6px; /* Reduced from 6px 9px */
   font-size: 0.9rem;
 }
 
@@ -521,7 +521,7 @@ footer {
 
 .nav-buttons {
   display: flex;
-  gap: 6px;
+  gap: 3px;
   flex-wrap: wrap;
 }
 
@@ -671,8 +671,9 @@ footer,
   
   .cta-button,
   .nav-button {
-    font-size: 1rem;
-    padding: 12px 24px;
+    font-size: 0.8rem;
+    padding: 4px 6px; /* Reduced from 6px 9px */
+
   }
   
   .nav-button {
@@ -721,6 +722,10 @@ footer,
     font-size: 1rem;
   }
   
+  .nav-button {
+    padding: 3px 5px;
+    font-size: 0.75rem;
+  }
   .mini-logo {
     height: 30px;
     width: 30px;
