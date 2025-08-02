@@ -41,11 +41,9 @@
     href="https://azothsolver-web.vercel.app/assets/images/favicon/favicon-16x16.png" />
   <link rel="manifest" href="https://azothsolver-web.vercel.app/assets/images/favicon/site.webmanifest" />
 
-
   <!-- Link to external CSS file -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
-
 
 <body>
 
@@ -60,7 +58,6 @@
       <a href="/roadmap.html" class="nav-button tertiary">roadmap</a>
       <a href="/whitepaper.html" class="nav-button secondary">wp</a>
       <a href="/about.html" class="nav-button tertiary">about</a>
-
     </div>
   </nav>
 
@@ -86,28 +83,27 @@
   </header>
 
   <main>
+    <section class="content-section">
+      <p>AzothSolver is built and maintained by a self-taught smart contract developer with a strong bias toward optimization and system architecture. Though solo-led, the project benefits from occasional input by peers with deep Rust, networking, and backend experience—some of whom may join the effort as the solver matures.</p>
 
-    <section class="pitch">
-      <p>
-        AzothSolver is built and maintained by a self-taught smart contract developer with a strong bias toward
-        optimization and system architecture. Though solo-led, the project benefits from occasional input by peers with
-        deep Rust, networking, and backend experience—some of whom may join the effort as the solver matures.
-      </p>
+      <p>The journey began while using CoWSwap, where I noticed the solvers bringing surplus to users. After thinking about it for 3 months, I decided to take a closer look and discovered something that made my eyes shine: combinatorial optimization. It looks challenging and super interesting—exactly the kind of problem that brings together all my past experiences.</p>
+    </section>
+
+    <section class="content-list">
+      <h3>Background</h3>
       <ul>
-        <li>3.5 months rust backend role at web3 start-up, collaborating with senior engineers on Gnosis Safe–based
-          bridge infrastructure</li>
-        <li>Hands-on Solidity development: launchpad with tax logic, audited and deployed after 6 months of solo work
-        </li>
-        <li>Audit contest participant with working knowledge of automated tools (Slither, etc.) and formal verification
-          awareness</li>
-        <li>Experience writing hackathon tutorials for smart contract voting systems and crowdfunds with frontend
-          integration</li>
-        <li>Deployed custom infrastructure monitoring for mining operations; built across both Linux and Windows stacks
-        </li>
+        <li>3.5 months Rust backend role at web3 start-up, collaborating with senior engineers on Gnosis Safe–based bridge infrastructure</li>
+        <li>Hands-on Solidity development: launchpad with tax logic, audited and deployed after 6 months of solo work</li>
+        <li>Audit contest participant with working knowledge of automated tools (Slither, etc.) and formal verification awareness</li>
+        <li>Experience writing hackathon tutorials for smart contract voting systems and crowdfunds with frontend integration</li>
+        <li>Ran mining operations with custom infrastructure monitoring; built across both Linux and Windows stacks</li>
         <li>Broader dev background: Next.js, TypeScript, Android, Unity/Unreal, and Blender scripting</li>
       </ul>
     </section>
 
+    <section class="content-section">
+      <p>I've always loved optimization and can spend hours squeezing out every bit of performance. This is the first time I've seen so many of my experiences converge toward one exciting challenge. The road ahead is demanding, and I'm happily walking that path while learning and building with the CowDAO community.</p>
+    </section>
 
     <section class="contact">
       <h2>Contact</h2>
@@ -123,10 +119,6 @@
       </p>
     </section>
   </main>
-
-
-
-
 
   <footer>
     <div class="pixel-bar">
@@ -163,22 +155,22 @@
     observer.observe(header);
   </script>
 
-  <script>
-    // Show/hide back-to-top button based on scroll position
-    window.addEventListener('scroll', () => {
-      const button = document.getElementById('back-to-top');
-      if (window.scrollY > 300) { // Show button after scrolling 300px
-        button.classList.add('visible');
-      } else {
-        button.classList.remove('visible');
-      }
-    });
+<script>
+  // Show/hide back-to-top button based on scroll position
+  window.addEventListener('scroll', () => {
+    const button = document.getElementById('back-to-top');
+    if (window.scrollY > 300) { // Show button after scrolling 300px
+      button.classList.add('visible');
+    } else {
+      button.classList.remove('visible');
+    }
+  });
 
-    // Smooth scroll to top when button is clicked
-    document.getElementById('back-to-top').addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  </script>
+  // Smooth scroll to top when button is clicked
+  document.getElementById('back-to-top').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+</script>
 </body>
 
 </html>
